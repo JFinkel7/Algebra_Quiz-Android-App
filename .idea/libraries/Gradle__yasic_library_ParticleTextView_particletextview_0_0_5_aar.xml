@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: yasic.library.ParticleTextView:particletextview:0.0.5@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/368c1301786298bc183f9f727cb91bea/particletextview-0.0.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/368c1301786298bc183f9f727cb91bea/particletextview-0.0.5/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/yasic.library.ParticleTextView/particletextview/0.0.5/1a815451fc23cb5f965177273728ad176079bd1c/particletextview-0.0.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/yasic.library.ParticleTextView/particletextview/0.0.5/6bab885dc0d1b76f543a288227cbd83549e4a10b/particletextview-0.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<resources>
+    <!--General-->
+    <string name="app_name">Algebra Quiz App</string>
+    <string name="answer_goes_here">Answer Goes Here</string>
+    <string name="next">Next</string>
+    <string name="instructions">Instructions</string>
+
+
+
+</resources>
