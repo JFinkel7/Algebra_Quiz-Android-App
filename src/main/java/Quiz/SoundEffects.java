@@ -1,4 +1,4 @@
-package com.jfinkelstudios.mobile.algebraquizapp;
+package Quiz;
 
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -18,7 +18,7 @@ public class SoundEffects {
     private int successSound;
     //*******
     /***Constructor↓***/
-    SoundEffects(Context context, int maxStream) {
+   public SoundEffects(Context context, int maxStream) {
         this.context = context;
         AudioAttributes audioAttribute = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_GAME).setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build();
         soundPool = new SoundPool.Builder().setAudioAttributes(audioAttribute).setMaxStreams(maxStream).build();

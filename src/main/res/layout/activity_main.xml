@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,74 +8,16 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:elevation="4dp"
-        android:max="100"
-        android:progress="0" />
-
-    <ImageButton
-        android:id="@+id/imgBtnHint"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/progressBar"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/transparent"
-        android:onClick="showHint"
-        android:src="@drawable/ic_hint_black24dp"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/txtView_QuestionInstructions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/progressBar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="80dp"
-        android:text="@string/instructions"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="25sp" />
-    <!--
-        popIn|fromBottom|fromRight|fromMiddle|none
-        app:animateCursor="true|false"
-        app:animateTextClear="true|false"
-    -->
-
-    <com.alimuzaffar.lib.widgets.AnimatedEditText
-        android:id="@+id/editTxt_UserInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/btnNext"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="56dp"
-        android:hint="@string/answer_goes_here"
-        android:inputType="textNoSuggestions"
-        android:maxLines="1"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:animateCursor="true"
-        app:animateTextClear="true"
-        app:animationType="fromRight" />
-
     <Button
-        android:id="@+id/btnNext"
+        android:id="@+id/btnFunctions2_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="125dp"
-        android:elevation="4dp"
-        android:onClick="btn_Next"
-        android:text="@string/next"
+        android:layout_centerInParent="true"
+        android:onClick="btnFunctions2_3"
+        android:text="Functions_2_3"
         android:textAlignment="center"
-        android:textSize="16sp" />
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
 
 </RelativeLayout>
