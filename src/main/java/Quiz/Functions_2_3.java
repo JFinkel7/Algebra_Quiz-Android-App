@@ -8,6 +8,7 @@ import java.util.Random;
 
 import Database.DatabaseOpenHandler;
 import Database.DbEvent;
+import QuizRepository.IFunctions_2_3_Questions;
 
 
 public class Functions_2_3 implements IFunctions_2_3_Questions {
@@ -35,14 +36,14 @@ public class Functions_2_3 implements IFunctions_2_3_Questions {
         this.db = dbHandler.getWritableDatabase();
         //*** Adding Data To Our Database If None Exists ***
         if (!(dbEvent.getRowCount(db) > 1)) {
-            dbEvent.insertTwoTableData(db,QUESTION_1,SOLUTION_1);
-            dbEvent.insertTwoTableData(db,QUESTION_2,SOLUTION_2);
-            dbEvent.insertTwoTableData(db,QUESTION_3,SOLUTION_3);
-            dbEvent.insertTwoTableData(db,QUESTION_4,SOLUTION_4);
-            dbEvent.insertTwoTableData(db,QUESTION_5,SOLUTION_5);
-            dbEvent.insertTwoTableData(db,QUESTION_6,SOLUTION_6);
-            dbEvent.insertTwoTableData(db,QUESTION_7,SOLUTION_7);
-            dbEvent.insertTwoTableData(db,QUESTION_8,SOLUTION_8);
+            dbEvent.insertTwoTableData(db, QUESTION_1, SOLUTION_1);
+            dbEvent.insertTwoTableData(db, QUESTION_2, SOLUTION_2);
+            dbEvent.insertTwoTableData(db, QUESTION_3, SOLUTION_3);
+            dbEvent.insertTwoTableData(db, QUESTION_4, SOLUTION_4);
+            dbEvent.insertTwoTableData(db, QUESTION_5, SOLUTION_5);
+            dbEvent.insertTwoTableData(db, QUESTION_6, SOLUTION_6);
+            dbEvent.insertTwoTableData(db, QUESTION_7, SOLUTION_7);
+            dbEvent.insertTwoTableData(db, QUESTION_8, SOLUTION_8);
         }
     }
 
@@ -66,6 +67,7 @@ public class Functions_2_3 implements IFunctions_2_3_Questions {
 
 
     public String getSolution() {
+
         return (dbEvent.retrieveTableData(db, dbEvent.getColumn2(), randomIndex));
     }
 
@@ -73,10 +75,8 @@ public class Functions_2_3 implements IFunctions_2_3_Questions {
     public boolean checkQuestion(String userInput) {
         if (!(userInput.isEmpty())) {// Continue
             String solution = getSolution();
-            if (userInput.equals(solution)) {
-                //*** Returns True If User Input Matches With The Solution ***
-                return (true);
-            }
+            //*** Returns True If User Input Matches With The Solution ***
+            return (userInput.equals(solution));
         }
         return (false);
     }

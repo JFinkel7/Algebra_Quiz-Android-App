@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class MainActivity extends AppCompatActivity {
 
     //*****
@@ -16,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnFunctions2_3(View view) {
-        startActivity(new Intent(MainActivity.this, Functions2_3Activity.class));
+        startActivity(new Intent(this, Functions2_3Activity.class));
+    }
+
+    public void btnLinearFunctions(View view) {
+        startActivity(new Intent(this, LinearFunctionsActivity.class));
     }
 }// END OF CLASS

@@ -16,7 +16,6 @@ import com.alimuzaffar.lib.widgets.AnimatedEditText;
 import java.util.Objects;
 
 import Quiz.Functions_2_3;
-import Quiz.SoundEffects;
 
 public class Functions2_3Activity extends AppCompatActivity {
     //* Data Types
@@ -31,8 +30,8 @@ public class Functions2_3Activity extends AppCompatActivity {
     //* Classes
     private Functions_2_3 functions_2_3;
     private SoundEffects correctSoundEffect, inCorrectSoundEffect;
-    private int currentProgress = 0;
-    private int incorrectProgress = 0;
+    private static int currentProgress = 0;
+
 
     //*****
     @Override
@@ -55,35 +54,34 @@ public class Functions2_3Activity extends AppCompatActivity {
         txtView_Questions.setText(functions_2_3.getQuestion());
     }
 
-    public void showHint(View view) {
-        Toast.makeText(Functions2_3Activity.this, functions_2_3.getSolution(), Toast.LENGTH_SHORT).show();
-    }
 
     public void btn_Next(View view) {
-        //* Classes
         String input = Objects.requireNonNull(editText.getText()).toString().trim();
         boolean questionIsCorrect = functions_2_3.checkQuestion(input);
-        if (questionIsCorrect) {//  // IF CORRECT ↓
+        if (questionIsCorrect) {// IF CORRECT ↓
             if (!(currentProgress >= 100)) {
                 correctSoundEffect.playSound();
-                currentProgress += 10;
                 /*****Animates The Progress Bar*****/
+                currentProgress += 10;
                 ObjectAnimator.ofInt(progressBar, "progress", currentProgress).setDuration(300).start();
                 txtView_Questions.setText(functions_2_3.getRandomQuestion());
             }
+
         } else {// IF WRONG ↓
             inCorrectSoundEffect.playSound();
-            txtView_Questions.setText(functions_2_3.getRandomQuestion());
             if (!(currentProgress <= 0)) {
                 /*****Animates The Progress Bar*****/
-                ObjectAnimator.ofInt(progressBar, "progress", currentProgress).setDuration(300).start();
                 currentProgress -= 10;
-                progressBar.setProgress(currentProgress);
+                ObjectAnimator.ofInt(progressBar, "progress", currentProgress).setDuration(300).start();
+
             }
         }
 
     }
 
+    public void showHint(View view) {
+        Toast.makeText(Functions2_3Activity.this, functions_2_3.getSolution(), Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onPause() {

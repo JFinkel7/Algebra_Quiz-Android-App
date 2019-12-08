@@ -4,6 +4,9 @@
     <string name="answer_goes_here">Answer Goes Here</string>
     <string name="next">Next</string>
     <string name="instructions">Instructions</string>
+    <string name="target_text">Target Text</string>
+    <string name="finkel">Finkel</string>
+    <string name="jacob">Jacob</string>
 
 
 </resources>

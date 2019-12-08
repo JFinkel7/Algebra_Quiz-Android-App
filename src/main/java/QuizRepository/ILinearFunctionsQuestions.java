@@ -1,6 +1,6 @@
-package Quiz;
+package QuizRepository;
 
-public interface IFunctions_2_3_Questions {
+public class ILinearFunctionsQuestions {
     String QUESTION_1 = "Is the set of ordered pairs a\u200B function(Y/N)\t\t\n\t\t\t{(4\u200B,2\u200B), \u200B(5\u200B,2\u200B), \u200B(2\u200B,3\u200B)}";
     String SOLUTION_1 = "Y";
     //

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.razir.progressbutton:progressbutton:1.0.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/60c5420559b8eb5ab5295631b34b8f3a/jetified-progressbutton-1.0.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/60c5420559b8eb5ab5295631b34b8f3a/jetified-progressbutton-1.0.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3da8e865e67289d09fe86d14c3fc993e/jetified-progressbutton-1.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3da8e865e67289d09fe86d14c3fc993e/jetified-progressbutton-1.0.3/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.razir.progressbutton/progressbutton/1.0.3/ed4ae66f9faf7dc6676c191f6b17cfbeff28e9a3/progressbutton-1.0.3-javadoc.jar!/" />

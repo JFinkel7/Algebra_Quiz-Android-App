@@ -16,6 +16,7 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:elevation="4dp"
+        android:progressTint="@color/blue_Aqua"
         android:max="100"
         android:progress="0" />
 
