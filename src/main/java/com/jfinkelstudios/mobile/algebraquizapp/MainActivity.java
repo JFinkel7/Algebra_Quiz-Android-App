@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnLinearFunctions(View view) {
-        startActivity(new Intent(this, LinearFunctionsActivity.class));
+        startActivity(new Intent(this, LinearModelsActivity.class));
     }
 }// END OF CLASS

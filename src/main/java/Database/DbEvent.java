@@ -6,10 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 /****** ADDED THIS CLASS IN Retrieve 1.3 ******/
 public class DbEvent extends DataSet implements QueryStrings {
-    //private ContentValues values = new ContentValues();
-    //private Cursor cursor;
+    //***>
     private static final String RETRIEVE_TABLE_DATA_ERROR = "Null Pointer Thrown At RetrieveTableData";
 
+    //***>
     // Creates 1 Column DbDataSet
     public DbEvent(int version, String databaseName, String tableName, String ID, String column1) {
         super(version, databaseName, tableName, ID, column1);
@@ -24,8 +24,9 @@ public class DbEvent extends DataSet implements QueryStrings {
     public DbEvent(int version, String databaseName, String tableName, String ID, String column1, String column2, String column3) {
         super(version, databaseName, tableName, ID, column1, column2, column3);
     }
-    
-    public DbEvent(){}
+
+    public DbEvent() {
+    }
 
 
     // <======================== ONE TABLE ========================>
@@ -80,6 +81,16 @@ public class DbEvent extends DataSet implements QueryStrings {
         return (String.format(DROP_TABLE, getTableName()));
     }
 
+    /**** Added Function ****/
+    public int nextColumn(SQLiteDatabase db, int questionID) {
+        Cursor cursor = db.rawQuery(String.format(SELECT_NEXT_ID, getTableName(), questionID), null);
+        if (cursor != null) {
+            while (cursor.moveToNext())
+                cursor.moveToNext();
+        }
+        cursor.close();
+        return (questionID);
+    }
 
     public int getColumnCount(SQLiteDatabase db) {
         Cursor result = db.rawQuery(String.format(SELECT_ALL, getTableName()), null);
@@ -92,10 +103,12 @@ public class DbEvent extends DataSet implements QueryStrings {
                 }
             }
             result.close();
-        }return 0;
+        }
+        return 0;
     }
 
     public int getRowCount(SQLiteDatabase db) {
+//        try {
         Cursor result = db.rawQuery(String.format(SELECT_ALL, getTableName()), null);
         if (result != null) {
             while (result.moveToNext()) {
@@ -106,6 +119,10 @@ public class DbEvent extends DataSet implements QueryStrings {
                 }
             }
             result.close();
-        }return 0;
+        }
+//        } catch (Exception e) {
+//            throw new NullPointerException("Null Pointer Exception Found In GetRowCount");
+//        }
+        return 0;
     }
 }// END OF CLASS

@@ -1,5 +1,6 @@
 package Database;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -7,9 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseOpenHandler extends SQLiteOpenHelper {
     private DbEvent dbContext;
 
-    public DatabaseOpenHandler(android.content.Context context, DbEvent dbContext) {
-        super(context, dbContext.getDatabaseName(), null, (int) dbContext.getVersion());
+
+    public DatabaseOpenHandler(Context context, DbEvent dbContext) {
+        super(context, dbContext.getTableName(), null, dbContext.getVersion());
         this.dbContext = dbContext;
+
     }
 
     @Override
@@ -17,17 +20,13 @@ public class DatabaseOpenHandler extends SQLiteOpenHelper {
         db.execSQL(dbContext.createTwoColumnTable());
     }
 
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(dbContext.dropTable());
         onCreate(db);
+
     }
-
-
-
-
-
-
 
 
 }// END OF CLASS

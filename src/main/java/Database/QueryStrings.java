@@ -9,7 +9,8 @@ public interface QueryStrings {
 
     //** SELECT **/
     String SELECT_ALL = "SELECT * FROM %s; ";
-    String SELECT_ITEM_FROM_TABLE = "SELECT %s FROM %s ;";
+    String SELECT_NEXT_ID = "SELECT ID FROM %s, WHERE ID = %s";
+    String SELECT_ITEM_FROM_TABLE = "SELECT %s FROM %s;";
     String SELECT_TABLE_WHERE_ITEM_EXISTS = "SELECT %s FROM %s WHERE %s = %s;";
     String GET_ROW_COUNT = "SELECT Count(*) FROM %s";
 }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/White"
-    tools:context=".LinearFunctionsActivity">
+    tools:context=".LinearModelsActivity">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -16,29 +16,20 @@
         android:max="100"
         android:progress="0"
         android:progressTint="@color/blue_Aqua" />
-
+    <!--TEXT-VIEW-QUESTION-->
     <TextView
-        android:id="@+id/txtView_QuestionInstructions"
+        android:id="@+id/txtView_Question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/progressBar"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="80dp"
-        android:text="Whats My Name?"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="25sp" />
 
-    <!--    <LinearLayout-->
-    <!--        android:id="@+id/endZoneLinearLayout"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:layout_centerInParent="true"-->
-    <!--        android:background="@color/White"-->
-    <!--        android:gravity="center"-->
-    <!--        android:orientation="horizontal">-->
-
+    <!--TEXT-VIEW-TARGET-->
     <TextView
         android:id="@+id/txtView_Target"
         android:layout_width="match_parent"
@@ -46,33 +37,34 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="80dp"
         android:background="@color/Gray"
-        android:text="Finkel"
+        android:hint="Drag The Answer Here"
         android:textAlignment="center"
         android:textColor="@color/White"
         android:textSize="25sp" />
-    <!--    </LinearLayout>-->
 
 
+    <!--Button-QUESTION_1-->
     <Button
-        android:id="@+id/btnToDrag"
+        android:id="@+id/btnQuestion1"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_below="@id/txtView_Target"
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="150dp"
-        android:text="@string/finkel"
+
         android:textAlignment="center" />
 
-
+    <!--Button-QUESTION_2-->
     <Button
-        android:id="@+id/btnToDrag2"
+        android:id="@+id/btnQuestion2"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_below="@id/txtView_Target"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="150dp"
-        android:text="@string/jacob"
         android:textAlignment="center" />
+
+
 </RelativeLayout>

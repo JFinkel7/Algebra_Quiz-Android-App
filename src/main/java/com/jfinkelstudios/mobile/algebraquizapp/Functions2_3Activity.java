@@ -50,7 +50,7 @@ public class Functions2_3Activity extends AppCompatActivity {
         inCorrectSoundEffect.setSound(R.raw.sound_error_2);
         /***Functions_2_3 Initialization***/
         functions_2_3 = new Functions_2_3(Functions2_3Activity.this);
-        //*** Initialize's The Question When Loading The App ***
+        /***Initialize's The Table Functions_2_3 Question When Loading The App***/
         txtView_Questions.setText(functions_2_3.getQuestion());
     }
 
@@ -73,14 +73,13 @@ public class Functions2_3Activity extends AppCompatActivity {
                 /*****Animates The Progress Bar*****/
                 currentProgress -= 10;
                 ObjectAnimator.ofInt(progressBar, "progress", currentProgress).setDuration(300).start();
-
             }
         }
 
     }
 
     public void showHint(View view) {
-        Toast.makeText(Functions2_3Activity.this, functions_2_3.getSolution(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(Functions2_3Activity.this, functions_2_3.getRandomSolution(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
