@@ -22,6 +22,7 @@ public class Functions2_3Activity extends AppCompatActivity {
     private static final String PROPERTY_NAME = "progress";
     private static final String INFO = "INFO:";
     private static final String SOUND_IS_DESTROYED = "Sound Is Destroyed";
+    private static int currentProgress = 0;
     //*****
     //* VIEWS
     private TextView txtView_Questions;
@@ -30,10 +31,8 @@ public class Functions2_3Activity extends AppCompatActivity {
     //* Classes
     private Functions_2_3 functions_2_3;
     private SoundEffects correctSoundEffect, inCorrectSoundEffect;
-    private static int currentProgress = 0;
 
-
-    //*****
+    //********>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +41,6 @@ public class Functions2_3Activity extends AppCompatActivity {
         editText = findViewById(R.id.editTxt_UserInput);
         txtView_Questions = findViewById(R.id.txtView_QuestionInstructions);
         progressBar = findViewById(R.id.progressBar);
-        ImageButton imgBtnHint = findViewById(R.id.imgBtnHint);
         /*****Sound Effects*****/
         correctSoundEffect = new SoundEffects(Functions2_3Activity.this, 1);
         correctSoundEffect.setSound(R.raw.single_small_bell);
@@ -63,7 +61,7 @@ public class Functions2_3Activity extends AppCompatActivity {
                 correctSoundEffect.playSound();
                 /*****Animates The Progress Bar*****/
                 currentProgress += 10;
-                ObjectAnimator.ofInt(progressBar, "progress", currentProgress).setDuration(300).start();
+                ObjectAnimator.ofInt(progressBar, PROPERTY_NAME, currentProgress).setDuration(300).start();
                 txtView_Questions.setText(functions_2_3.getRandomQuestion());
             }
 
@@ -72,7 +70,7 @@ public class Functions2_3Activity extends AppCompatActivity {
             if (!(currentProgress <= 0)) {
                 /*****Animates The Progress Bar*****/
                 currentProgress -= 10;
-                ObjectAnimator.ofInt(progressBar, "progress", currentProgress).setDuration(300).start();
+                ObjectAnimator.ofInt(progressBar, PROPERTY_NAME, currentProgress).setDuration(300).start();
             }
         }
 

@@ -52,8 +52,8 @@
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="150dp"
-
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/Black" />
 
     <!--Button-QUESTION_2-->
     <Button
@@ -64,7 +64,17 @@
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="150dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/Black" />
 
+    <!--Button-QUESTION_3-->
+    <Button
+        android:id="@+id/btnQuestion3"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/txtView_Target"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="225dp"
+        android:textAlignment="center" />
 
 </RelativeLayout>
