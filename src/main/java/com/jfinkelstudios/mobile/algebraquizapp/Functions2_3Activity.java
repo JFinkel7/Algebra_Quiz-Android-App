@@ -1,10 +1,10 @@
 package com.jfinkelstudios.mobile.algebraquizapp;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +16,7 @@ import com.alimuzaffar.lib.widgets.AnimatedEditText;
 import java.util.Objects;
 
 import Quiz.Functions_2_3;
+import Quiz.SoundEffects;
 
 public class Functions2_3Activity extends AppCompatActivity {
     //* Data Types
@@ -52,7 +53,7 @@ public class Functions2_3Activity extends AppCompatActivity {
         txtView_Questions.setText(functions_2_3.getQuestion());
     }
 
-
+    // Checks The Question
     public void btn_Next(View view) {
         String input = Objects.requireNonNull(editText.getText()).toString().trim();
         boolean questionIsCorrect = functions_2_3.checkQuestion(input);
@@ -76,8 +77,17 @@ public class Functions2_3Activity extends AppCompatActivity {
 
     }
 
-    public void showHint(View view) {
+    // Shows The Solution
+    public void imgBtnShowHelp(View view) {
         Toast.makeText(Functions2_3Activity.this, functions_2_3.getRandomSolution(), Toast.LENGTH_SHORT).show();
+    }
+
+    // Shows The Video Tutorial From The VideoView
+    public void imgBtnShowVideoHelp(View view) {
+        // Passing Resource Data To Another Activity
+        Intent intent = new Intent(getBaseContext(), PopUpVideoPlayerActivity.class);
+        intent.putExtra("videoID", functions_2_3.getRandomVideoPath());
+        startActivity(intent);
     }
 
     @Override
@@ -94,4 +104,6 @@ public class Functions2_3Activity extends AppCompatActivity {
         inCorrectSoundEffect.disposeSound();
         Log.i(INFO, SOUND_IS_DESTROYED);
     }
+
+
 }

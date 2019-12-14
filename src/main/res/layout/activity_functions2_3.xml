@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".Functions2_3Activity">
-
+    <!--PROGRESS-BAR-->
     <ProgressBar
         android:id="@+id/progressBar"
         style="@android:style/Widget.ProgressBar.Horizontal"
@@ -16,10 +16,10 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:elevation="4dp"
-        android:progressTint="@color/blue_Aqua"
         android:max="100"
-        android:progress="0" />
-
+        android:progress="0"
+        android:progressTint="@color/blue_Aqua" />
+    <!--IMG-BUTTON-HINT-QUESTION-->
     <ImageButton
         android:id="@+id/imgBtnHint"
         android:layout_width="50dp"
@@ -27,8 +27,20 @@
         android:layout_below="@id/progressBar"
         android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"
-        android:onClick="showHint"
+        android:onClick="imgBtnShowHelp"
         android:src="@drawable/ic_hint_black24dp"
+        tools:ignore="ContentDescription" />
+
+    <!--IMG-BUTTON-HELP-QUESTION-->
+    <ImageButton
+        android:id="@+id/imgBtnHelp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/progressBar"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent"
+        android:onClick="imgBtnShowVideoHelp"
+        android:src="@drawable/ic_live_help24dp"
         tools:ignore="ContentDescription" />
 
     <TextView

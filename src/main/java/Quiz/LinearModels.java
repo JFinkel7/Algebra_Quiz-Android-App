@@ -9,6 +9,10 @@ import Database.DatabaseOpenHandler;
 import Database.DbEvent;
 import QuizRepository.ILinearModelsQuestions;
 
+import static QuizRepository.IFunctions_2_3_Questions.QUESTION_1_VIDEO_PATH;
+import static QuizRepository.IFunctions_2_3_Questions.QUESTION_2_VIDEO_PATH;
+import static QuizRepository.IFunctions_2_3_Questions.QUESTION_3_VIDEO_PATH;
+
 
 public class LinearModels implements ILinearModelsQuestions {
     //*****
@@ -17,6 +21,7 @@ public class LinearModels implements ILinearModelsQuestions {
     private static final String COLUMN_ID = "ID";
     private static final String COLUMN_1 = "Question";
     private static final String COLUMN_2 = "Solution";
+    private static final String COLUMN_3 = "VideoPath";
     private static final String EMPTY_STRING = "";
     private int randomIndex = 1;
     // DbDataSet
@@ -26,15 +31,17 @@ public class LinearModels implements ILinearModelsQuestions {
 
 
     //*****
+    //***Constructor***
     public LinearModels(Context context) {
-        this.dbEvent = new DbEvent(1, DB_NAME, TABLE_NAME, COLUMN_ID, COLUMN_1, COLUMN_2);
+        this.dbEvent = new DbEvent(1, DB_NAME, TABLE_NAME, COLUMN_ID, COLUMN_1, COLUMN_2, COLUMN_3);
         this.dbHandler = new DatabaseOpenHandler(context, dbEvent);
         this.db = dbHandler.getWritableDatabase();
+
         //*** Adding Data To Our Database If None Exists ***
         if (!(dbEvent.getRowCount(db) >= 1)) {
-            dbEvent.insertTwoTableData(db, QUESTION_1, SOLUTION_1);
-            dbEvent.insertTwoTableData(db, QUESTION_2, SOLUTION_2);
-            dbEvent.insertTwoTableData(db, QUESTION_3, SOLUTION_3);
+            dbEvent.insertThreeTableData(db, QUESTION_1, SOLUTION_1, QUESTION_1_VIDEO_PATH);
+            dbEvent.insertThreeTableData(db, QUESTION_2, SOLUTION_2, QUESTION_2_VIDEO_PATH);
+            dbEvent.insertThreeTableData(db, QUESTION_3, SOLUTION_3, QUESTION_3_VIDEO_PATH);
         }
     }
 
@@ -72,6 +79,11 @@ public class LinearModels implements ILinearModelsQuestions {
             return (userInput.equals(getRandomSolution()));
         }
         return (false);
+    }
+
+    /*** (INFO) ADDED METHOD ***/
+    public int getRandomVideoPath() {
+        return (Integer.parseInt(dbEvent.retrieveTableData(db, dbEvent.getColumn3(), randomIndex)));
     }
 
     /*** (INFO) ADDED METHOD ***/

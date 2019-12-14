@@ -25,9 +25,6 @@ public class DbEvent extends DataSet implements QueryStrings {
         super(version, databaseName, tableName, ID, column1, column2, column3);
     }
 
-    public DbEvent() {
-    }
-
 
     // <======================== ONE TABLE ========================>
     public String createOneColumnTable() {
@@ -43,7 +40,7 @@ public class DbEvent extends DataSet implements QueryStrings {
         return (row != (-1));
     }
 
-    // <======================== TWO TABLE ========================>
+    // <======================== TWO TABLES ========================>
     // *** CREATING TABLES *** ↓
     public String createTwoColumnTable() {
         return (String.format(CREATE_TWO_COLUMN_TABLE, getTableName(), getID(), getColumn1(), getColumn2()));
@@ -54,6 +51,32 @@ public class DbEvent extends DataSet implements QueryStrings {
         ContentValues values = new ContentValues();
         values.put(getColumn1(), content1);
         values.put(getColumn2(), content2);
+        long row = db.insertOrThrow(getTableName(), null, values);
+        return (row != (-1));
+    }
+
+    // <======================== THREE TABLES ========================>
+    //** ADDED ***
+    public String createThreeColumnTable() {
+        return (String.format(CREATE_THREE_COLUMN_TABLE, getTableName(), getID(), getColumn1(), getColumn2(), getColumn3()));
+    }
+
+    //** ADDED ***
+    public boolean insertThreeTableData(SQLiteDatabase db, String content1, String content2, String content3) {
+        ContentValues values = new ContentValues();
+        values.put(getColumn1(), content1);
+        values.put(getColumn2(), content2);
+        values.put(getColumn3(), content3);
+        long row = db.insertOrThrow(getTableName(), null, values);
+        return (row != (-1));
+    }
+
+    //** OVERLOADED ***
+    public boolean insertThreeTableData(SQLiteDatabase db, String content1, String content2, int content3) {
+        ContentValues values = new ContentValues();
+        values.put(getColumn1(), content1);
+        values.put(getColumn2(), content2);
+        values.put(getColumn3(), content3);
         long row = db.insertOrThrow(getTableName(), null, values);
         return (row != (-1));
     }
@@ -108,21 +131,21 @@ public class DbEvent extends DataSet implements QueryStrings {
     }
 
     public int getRowCount(SQLiteDatabase db) {
-//        try {
-        Cursor result = db.rawQuery(String.format(SELECT_ALL, getTableName()), null);
-        if (result != null) {
-            while (result.moveToNext()) {
-                // Returns 0 If Column Exists | Returns -1 If It Does'nt
-                int rowCount = result.getCount();
-                if (rowCount != (-1)) {
-                    return (rowCount);
+        try {
+            Cursor result = db.rawQuery(String.format(SELECT_ALL, getTableName()), null);
+            if (result != null) {
+                while (result.moveToNext()) {
+                    // Returns 0 If Column Exists | Returns -1 If It Does'nt
+                    int rowCount = result.getCount();
+                    if (rowCount != (-1)) {
+                        return (rowCount);
+                    }
                 }
+                result.close();
             }
-            result.close();
+        } catch (Exception e) {
+            throw new NullPointerException("Null Pointer Exception Found In GetRowCount");
         }
-//        } catch (Exception e) {
-//            throw new NullPointerException("Null Pointer Exception Found In GetRowCount");
-//        }
         return 0;
     }
 }// END OF CLASS

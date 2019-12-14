@@ -1,3 +1,7 @@
+/*
+ * Software Developer: Denis J Finkel
+ * Project Goal: Create A Functional Algebra Quiz App
+ */
 package com.jfinkelstudios.mobile.algebraquizapp;
 
 import android.content.Intent;
@@ -5,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,5 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnLinearFunctions(View view) {
         startActivity(new Intent(this, LinearModelsActivity.class));
+    }
+
+    public void btnEquationsLines(View view) {
+        startActivity(new Intent(this, EquationLinesActivity.class));
     }
 }// END OF CLASS

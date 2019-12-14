@@ -17,16 +17,25 @@
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
+
     <Button
         android:id="@+id/btnLinearFunctions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:onClick="btnLinearFunctions"
         android:text="Linear Functions"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/btnEquationsLines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnEquationsLines"
+        android:text="Equation Of Lines"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
 </LinearLayout>

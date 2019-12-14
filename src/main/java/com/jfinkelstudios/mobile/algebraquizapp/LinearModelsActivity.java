@@ -3,6 +3,7 @@ package com.jfinkelstudios.mobile.algebraquizapp;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import Quiz.LinearModels;
+import Quiz.SoundEffects;
 
 public class LinearModelsActivity extends AppCompatActivity {
     //* Data Types
@@ -68,6 +70,13 @@ public class LinearModelsActivity extends AppCompatActivity {
         setDragListener(txtViewTarget);
     }
 
+    //***[Sets PopUp Video Activity]***/
+    public void imgBtnShowVideoHelp(View view) {
+        Intent intent = new Intent(getBaseContext(), PopUpVideoPlayerActivity.class);
+        intent.putExtra("videoID", linearModels.getRandomVideoPath());
+        startActivity(intent);
+    }
+
     //***[Sets Motion Event Listener]***/
     @SuppressLint("ClickableViewAccessibility")
     public void setMotionEventListener(final View EVENT_VIEW) {
@@ -90,12 +99,12 @@ public class LinearModelsActivity extends AppCompatActivity {
             @Override
             public boolean onDrag(View view, final DragEvent DRAG_EVENT) {
                 final View TARGET_VIEW = (View) DRAG_EVENT.getLocalState();
-                /***(1) - Checks If The Drag Event Has Started***/
+                /***(2) - Checks If The Drag Event Has Started***/
                 if (DRAG_EVENT.getAction() == DragEvent.ACTION_DRAG_STARTED) {
                     dragStartSound.playSound();
                 }
                 //
-                /***(2) - Checks If The Drag Event Has Entered An Area***/
+                /***(3) - Checks If The Drag Event Has Entered An Area***/
                 else if (DRAG_EVENT.getAction() == DragEvent.ACTION_DROP) {
                     switch (TARGET_VIEW.getId()) {
                         // <**** BTN QUESTION 1 ****>

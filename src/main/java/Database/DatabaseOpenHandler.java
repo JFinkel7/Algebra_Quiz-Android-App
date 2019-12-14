@@ -6,24 +6,25 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class DatabaseOpenHandler extends SQLiteOpenHelper {
-    private DbEvent dbContext;
+    private DbEvent dbEvent;
 
 
-    public DatabaseOpenHandler(Context context, DbEvent dbContext) {
-        super(context, dbContext.getTableName(), null, dbContext.getVersion());
-        this.dbContext = dbContext;
+    public DatabaseOpenHandler(Context context, DbEvent dbEvent) {
+        super(context, dbEvent.getTableName(), null, dbEvent.getVersion());
+        this.dbEvent = dbEvent;
 
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(dbContext.createTwoColumnTable());
+        db.execSQL(dbEvent.createThreeColumnTable());
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(dbContext.dropTable());
+        db.execSQL(dbEvent.dropTable());
         onCreate(db);
 
     }

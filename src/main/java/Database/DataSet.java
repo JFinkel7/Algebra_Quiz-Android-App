@@ -19,7 +19,6 @@ public abstract class DataSet {
         this.setID(ID);
         this.setTableName(tableName);
         this.setColumn1(column1);
-        this.setColumn2(column2);
     }
 
     /***Overloaded Constructor | 2 Column Table***/
@@ -40,11 +39,12 @@ public abstract class DataSet {
         this.setTableName(tableName);
         this.setColumn1(column1);
         this.setColumn2(column2);
+        this.setColumn3(column3);
     }
 
     /***Default Constructor***/
-    public DataSet() {}
-
+    public DataSet() {
+    }
 
 
     /**** SETTERS ****/
@@ -95,7 +95,9 @@ public abstract class DataSet {
         return ID;
     }
 
-    public String getColumn1() { return column1;}
+    public String getColumn1() {
+        return column1;
+    }
 
     public String getColumn2() {
         return column2;
