@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivityDrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/background_material_light"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="PrivateResource">
 
-    <Button
-        android:id="@+id/btnFunctions2_3"
+    <!-- Drawer Relative Layout -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnFunctions2_3"
-        android:text="Functions_2_3"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnLinearFunctions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnLinearFunctions"
-        android:text="Linear Functions"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        <!-- TEXT VIEW -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            android:textAlignment="center"
+            android:textColor="@color/Black" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/btnEquationsLines"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnEquationsLines"
-        android:text="Equation Of Lines"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
 
-</LinearLayout>
+    <!--SIDE NAVIGATION VIEW -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/mainActivityNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/border_nav_view"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/header_side_nav_view"
+        app:menu="@menu/menu_side_navigation">
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
+

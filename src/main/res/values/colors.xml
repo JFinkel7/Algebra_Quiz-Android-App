@@ -98,6 +98,7 @@
     <color name="blue_Indigo">#4F69C6</color>
     <color name="blue_Midnight">#00468C</color>
     <color name="blue_Ultramarine">#3F26BF</color>
+    <color name="blue_MoonLight">#4D00FF</color>
     <color name="blue_Medium">#3232CC</color>
     <color name="Blue">#3300FF</color>
     <color name="blue_Egyptian">#1034A6</color>
@@ -183,6 +184,7 @@
     <color name="pink_HotSaturated">#B2497D</color>
     <color name="pink_DeepPink">#ff1493</color>
     <color name="pink_MediumVioletRed">#C71585</color>
+    <color name="pink_Ultimate">#B900FF</color>
 
     <!-- Red -->
     <color name="red_Ruby">#E0115F</color>
@@ -396,8 +398,10 @@
     <!-- ↓ **** ======= Paper Color Pallets ======= **** ↓ -->
 
     <!-- Black -->
+    <color name="paperBlack">#0A0A0B</color>
     <color name="paperBlack_0">#45403F</color>
     <!-- Brown -->
+    <color name="paperBrown">#563129</color>
     <color name="paperBrown_0">#4B3D35</color>
     <color name="paperBrown_1">#91886D</color>
     <color name="paperBrown_Bronze">#5D4719</color>
@@ -405,24 +409,34 @@
 
     <!-- Grey -->
     <color name="paperGray_0">#9AA0A5</color>
+
+
     <color name="paperGray_Tan">#AEAEA0</color>
     <color name="paperGray_1">#C3C4BC</color>
     <color name="paperGray_2">#B1B2B1</color>
     <color name="paperGray_3">#C3C4BC</color>
 
     <!-- White -->
-    <color name="paperWhite_0">#E9E6E3</color>
-    <color name="paperWhite_1">#E3E3E0</color>
+    <color name="paperPureWhite">#FEFEFE</color>
+    <color name="paperBrightWhite">#F4F4F4</color>
+    <color name="paperLesserWhite">#EFEFEF</color>
+    <color name="paperGhostWhite">#EBEAEC</color>
+    <color name="paperWhite_0">#E6E4E2</color>
+    <color name="paperWhite_1">#E9E6E3</color>
+    <color name="paperWhite_2">#EDEEE9</color>
+    <color name="paperWhite_3">#E3E3E0</color>
 
 
     <!-- Blue Light -->
     <color name="paperBlue_0">#D2DCEC</color>
     <color name="paperBlue_Sky">#A5C7CE</color>
-    <color name="paperBlue_Aqua">#57A8A9</color>
+    <color name="paperBlue_AquaMarine">#57A8A9</color>
+    <color name="paperAqua">#D1E9E6</color>
     <color name="paperBlue_Baby">#649CAC</color>
     <color name="paperBlue_BabyDark">#3D7DA4</color>
     <color name="paperBlue_Saturated0">#7B7B85</color>
-    <color name="paperBlue_Saturated1">#6A8288</color>
+    <color name="paperBlue_Saturated1">#75838C</color>
+    <color name="paperBlue_Saturated2">#6A8288</color>
 
     <!-- Blue Dark -->
     <color name="paperBlueDark_Blue">#101826</color>
@@ -431,6 +445,7 @@
     <color name="paperBlueNeutral_0">#4F5357</color>
 
     <!-- Purple -->
+    <color name="paperPurple">#331823</color>
     <color name="paperPurple_0">#7F7389</color>
     <color name="paperPurple_Eggplant">#614051</color>
 
@@ -441,15 +456,33 @@
     <color name="paperPink_2">#DBA897</color>
 
     <!-- Red -->
-    <color name="paperRed_0">#AA5452</color>
-    <color name="paperRed_1">#CB825E</color>
-    <color name="paperRed_2">#A76B56</color>
+    <color name="paperRedSaturated">#5E2528</color>
+    <color name="paperRubyRed">#7D1404</color>
+    <color name="paperRubyRedDark">#881100</color>
+    <color name="paperRed">#F80000</color>
+    <color name="paperRedBright">#FF0002</color>
+    <color name="PaperRedChili">#F5422C</color>
+    <color name="paperRedHotChili">#E90310</color>
+    <color name="paperRedOrange">#C53C36</color>
+    <color name="paperRedOrangeDark">#A63F31</color>
+    <color name="paperRedNeon">#B42C4D</color>
+    <color name="paperRed_0">#BD4952</color>
+    <color name="paperRed_1">#AF4D55</color>
+    <color name="paperRed_2">#AA5452</color>
+    <color name="paperRedDull_0">#A65E54</color>
+    <color name="paperRedDull_1">#A76B56</color>
+    <color name="paperRedLightOrange">#CB825E</color>
+    <color name="paperRedCopper">#C06243</color>
 
 
     <!-- Orange -->
+    <color name="paperOrangeNeon">#F71600</color>
+    <color name="paperOrangeRed">#CC360B</color>
+    <color name="paperOrangePeach">#DCB49D</color>
     <color name="paperOrange_Peach">#DFC3A5</color>
     <color name="paperOrange_Beige">#E4D09C</color>
     <color name="paperOrange_OrangeDark">#B26C38</color>
+    <color name="paperOrangeBronze">#A47646</color>
     <color name="paperOrange_0">#D08747</color>
     <color name="paperOrange_1">#B89154</color>
 
@@ -474,6 +507,7 @@
     <color name="paperGreen_grassBrightGreen">#C5E1A5</color>
     <color name="paperGreen_cactusGreen1">#AEC596</color>
     <color name="paperGreen_cactusGreen0">#A8BC95</color>
+    <color name="paperGreen">#759563</color>
     <color name="paperGreen_Murkey">#8D9F77</color>
     <color name="paperGreen_cactusGreen">#717F61</color>
     <color name="paperGreen_mudGreen">#5A6351</color>

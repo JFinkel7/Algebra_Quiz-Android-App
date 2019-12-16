@@ -12,7 +12,6 @@ import QuizRepository.IFunctions_2_3_Questions;
 
 public class Functions_2_3 implements IFunctions_2_3_Questions {
     //*****
-    //
     private static final String DB_NAME = "Quiz";
     private static final String TABLE_NAME = "Functions_2_3";
     private static final String COLUMN_ID = "ID";
@@ -25,8 +24,6 @@ public class Functions_2_3 implements IFunctions_2_3_Questions {
     private SQLiteDatabase db;
     private DatabaseOpenHandler dbHandler;
     private DbEvent dbEvent;
-    //*****
-
     //*****
 
     /******CONSTRUCTOR******/
@@ -76,7 +73,7 @@ public class Functions_2_3 implements IFunctions_2_3_Questions {
         return (dbEvent.retrieveTableData(db, dbEvent.getColumn2(), randomIndex));
     }
 
-    /*** (INFO) ADDED METHOD ***/
+    //*** Gets Video Path That Matches With The Random Question (RANDOM_INDEX) ***
     public int getRandomVideoPath() {
         return (Integer.parseInt(dbEvent.retrieveTableData(db, dbEvent.getColumn3(), randomIndex)));
     }
@@ -91,7 +88,7 @@ public class Functions_2_3 implements IFunctions_2_3_Questions {
         return (false);
     }
 
-    /*** (INFO) ADDED METHOD ***/
+
     //*** Gets A Specific Solution Based On The Matching Solution ID ***
     public String getSolution(int Id) {
         if (Id > 0) {

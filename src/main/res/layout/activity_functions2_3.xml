@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/background_material_light"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".Functions2_3Activity">
+    tools:context=".Functions2_3Activity"
+    tools:ignore="PrivateResource">
+
     <!--PROGRESS-BAR-->
     <ProgressBar
         android:id="@+id/progressBar"
@@ -19,6 +21,7 @@
         android:max="100"
         android:progress="0"
         android:progressTint="@color/blue_Aqua" />
+
     <!--IMG-BUTTON-HINT-QUESTION-->
     <ImageButton
         android:id="@+id/imgBtnHint"
@@ -28,7 +31,7 @@
         android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"
         android:onClick="imgBtnShowHelp"
-        android:src="@drawable/ic_hint_black24dp"
+        android:src="@drawable/ic_hint24dp"
         tools:ignore="ContentDescription" />
 
     <!--IMG-BUTTON-HELP-QUESTION-->
@@ -43,6 +46,7 @@
         android:src="@drawable/ic_live_help24dp"
         tools:ignore="ContentDescription" />
 
+    <!--TEXT-VIEW-QUESTION-->
     <TextView
         android:id="@+id/txtView_QuestionInstructions"
         android:layout_width="match_parent"
@@ -61,6 +65,7 @@
         app:animateTextClear="true|false"
     -->
 
+    <!--ANIMATED-EDIT-TEXT-->
     <com.alimuzaffar.lib.widgets.AnimatedEditText
         android:id="@+id/editTxt_UserInput"
         android:layout_width="match_parent"
@@ -78,6 +83,7 @@
         app:animateTextClear="true"
         app:animationType="fromRight" />
 
+    <!--BUTTON-NEXT-->
     <Button
         android:id="@+id/btnNext"
         android:layout_width="match_parent"

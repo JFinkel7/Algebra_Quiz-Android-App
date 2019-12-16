@@ -20,17 +20,17 @@ import Quiz.SoundEffects;
 public class LinearModelsActivity extends AppCompatActivity {
     //* Data Types
     private static final String PROPERTY_NAME = "progress";
-    private static final String DEBUG = "DEBUG";
-    private static int currentProgress = 0;
-    ProgressBar progressBar;
-    private String question, chosenAnswer;
-    private TextView txtViewQuestion, txtViewTarget;
     //*****
     //* VIEWS
-    private Button btnQuestion_1, btnQuestion_2, btnQuestion_3;
+    ProgressBar progressBar;
+    private static int currentProgress = 0;
+    private String chosenAnswer;
+    private TextView txtViewQuestion;
+    private Button btnQuestion_1, btnQuestion_2;
+    private Button btnQuestion_3, btnQuestion_4;
     //* Classes
-    private LinearModels linearModels;
     private SoundEffects correctSound, inCorrectSound, dragStartSound, dragEndSound;
+    private LinearModels linearModels;
 
     //********>
     @Override
@@ -41,8 +41,9 @@ public class LinearModelsActivity extends AppCompatActivity {
         btnQuestion_1 = findViewById(R.id.btnQuestion1);
         btnQuestion_2 = findViewById(R.id.btnQuestion2);
         btnQuestion_3 = findViewById(R.id.btnQuestion3);
+        btnQuestion_4 = findViewById(R.id.btnQuestion4);
         txtViewQuestion = findViewById(R.id.txtView_Question);
-        txtViewTarget = findViewById(R.id.txtView_Target);
+        TextView txtViewTarget = findViewById(R.id.txtView_Target);
         progressBar = findViewById(R.id.progressBar);
         /***CLASS Object Construction***/
         linearModels = new LinearModels(LinearModelsActivity.this);
@@ -59,14 +60,18 @@ public class LinearModelsActivity extends AppCompatActivity {
         dragEndSound = new SoundEffects(this, 1);
         dragEndSound.setSound(R.raw.sound_fast_whoosh1);
         // VIEW CONFIGURATIONS
+        txtViewQuestion.setText(linearModels.getRandomQuestion());
         btnQuestion_1.setText(linearModels.getSolution(1));
         btnQuestion_2.setText(linearModels.getSolution(2));
         btnQuestion_3.setText(linearModels.getSolution(3));
-        txtViewQuestion.setText(linearModels.getRandomQuestion());
-        // SET OTHER METHODS
+        btnQuestion_4.setText(linearModels.getSolution(4));
+
+        // MOTION EVENT LISTENER CONFIG
         setMotionEventListener(btnQuestion_1);
         setMotionEventListener(btnQuestion_2);
         setMotionEventListener(btnQuestion_3);
+        setMotionEventListener(btnQuestion_4);
+        // SETTING DRAG LISTENER ON TXT_VIEW TARGET
         setDragListener(txtViewTarget);
     }
 
@@ -107,6 +112,7 @@ public class LinearModelsActivity extends AppCompatActivity {
                 /***(3) - Checks If The Drag Event Has Entered An Area***/
                 else if (DRAG_EVENT.getAction() == DragEvent.ACTION_DROP) {
                     switch (TARGET_VIEW.getId()) {
+
                         // <**** BTN QUESTION 1 ****>
                         case (R.id.btnQuestion1):
                             chosenAnswer = btnQuestion_1.getText().toString();
@@ -155,6 +161,28 @@ public class LinearModelsActivity extends AppCompatActivity {
                         // <**** BTN QUESTION 3 ****>
                         case (R.id.btnQuestion3):
                             chosenAnswer = btnQuestion_3.getText().toString();
+                            if (linearModels.checkQuestion(chosenAnswer)) {// * CORRECT * ↓
+                                /*****Animates The Progress Bar If Correct*****/
+                                if (!(currentProgress >= 100)) {
+                                    correctSound.playSound();
+                                    currentProgress += 10;
+                                    ObjectAnimator.ofInt(progressBar, PROPERTY_NAME, currentProgress).setDuration(300).start();
+                                    // Sets A New Random Question
+                                    txtViewQuestion.setText(linearModels.getRandomQuestion());
+                                }
+                            } else {// * WRONG * ↓
+                                /*****Animates The Progress Bar If Wrong*****/
+                                if (!(currentProgress <= 0)) {
+                                    currentProgress -= 10;
+                                    ObjectAnimator.ofInt(progressBar, PROPERTY_NAME, currentProgress).setDuration(300).start();
+                                }
+                                inCorrectSound.playSound();
+                            }
+                            break;
+
+                        // <**** BTN QUESTION 4 ****>
+                        case (R.id.btnQuestion4):
+                            chosenAnswer = btnQuestion_4.getText().toString();
                             if (linearModels.checkQuestion(chosenAnswer)) {// * CORRECT * ↓
                                 /*****Animates The Progress Bar If Correct*****/
                                 if (!(currentProgress >= 100)) {

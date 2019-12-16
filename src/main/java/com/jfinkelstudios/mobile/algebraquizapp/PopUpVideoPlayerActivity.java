@@ -1,8 +1,6 @@
 package com.jfinkelstudios.mobile.algebraquizapp;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -11,11 +9,9 @@ import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PopUpVideoPlayerActivity extends AppCompatActivity {
-
 
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -36,24 +32,17 @@ public class PopUpVideoPlayerActivity extends AppCompatActivity {
         params.x = 0;
         params.y = -20;
         getWindow().setAttributes(params);
-        // GETTING RESOURCE FROM THE OTHER ACTIVITY
-
-
-        //
-        // VIDEO VIEW
+        // VIDEO VIEW CONFIG
         VideoView videoView = findViewById(R.id.VideoView);//     GETTING VALUE FROM THE INTENT ↓
         String videoPath = "android.resource://" + getPackageName() + "/" + getIntent().getIntExtra("videoID", -1);
-
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);
-        // MEDIA CONTROLLER
+        // MEDIA CONTROLLER CONFIG
         MediaController mediaController = new MediaController(this);
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
     }// END OF CREATE
-
-
 
 
 }//END OF CLASS

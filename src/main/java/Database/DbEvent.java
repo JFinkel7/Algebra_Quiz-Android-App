@@ -7,32 +7,34 @@ import android.database.sqlite.SQLiteDatabase;
 /****** ADDED THIS CLASS IN Retrieve 1.3 ******/
 public class DbEvent extends DataSet implements QueryStrings {
     //***>
+    private static final String GET_ROW_COUNT_DATA_ERROR = "Null Pointer Exception Found In GetRowCount";
     private static final String RETRIEVE_TABLE_DATA_ERROR = "Null Pointer Thrown At RetrieveTableData";
 
     //***>
-    // Creates 1 Column DbDataSet
+    // *** Creates 1 Column DbDataSet ***
     public DbEvent(int version, String databaseName, String tableName, String ID, String column1) {
         super(version, databaseName, tableName, ID, column1);
     }
 
-    // Creates 2 Column DbDataSet
+    // *** Creates 2 Column DbDataSet ***
     public DbEvent(int version, String databaseName, String tableName, String ID, String column1, String column2) {
         super(version, databaseName, tableName, ID, column1, column2);
     }
 
-    // Creates 3 Column DbDataSet
+    // *** Creates 3 Column DbDataSet ***
     public DbEvent(int version, String databaseName, String tableName, String ID, String column1, String column2, String column3) {
         super(version, databaseName, tableName, ID, column1, column2, column3);
     }
 
 
     // <======================== ONE TABLE ========================>
+    // *** CREATING 1 TABLE DATA *** ↓
     public String createOneColumnTable() {
         return (String.format(CREATE_ONE_COLUMN_TABLE, getTableName(), getID(), getColumn1()));
 
     }
 
-    // *** INSERTING INTO TABLES *** ↓
+    // *** INSERTING INTO 1 TABLE DATA *** ↓
     public boolean insertOneTableData(SQLiteDatabase db, String content1) {
         ContentValues values = new ContentValues();
         values.put(getColumn1(), content1);
@@ -41,12 +43,12 @@ public class DbEvent extends DataSet implements QueryStrings {
     }
 
     // <======================== TWO TABLES ========================>
-    // *** CREATING TABLES *** ↓
+    // *** CREATING TABLE 2 TABLE DATA *** ↓
     public String createTwoColumnTable() {
         return (String.format(CREATE_TWO_COLUMN_TABLE, getTableName(), getID(), getColumn1(), getColumn2()));
     }
 
-    // *** INSERTING INTO TABLES *** ↓
+    // *** INSERTING INTO 2 TABLE DATA *** ↓
     public boolean insertTwoTableData(SQLiteDatabase db, String content1, String content2) {
         ContentValues values = new ContentValues();
         values.put(getColumn1(), content1);
@@ -56,12 +58,12 @@ public class DbEvent extends DataSet implements QueryStrings {
     }
 
     // <======================== THREE TABLES ========================>
-    //** ADDED ***
+    // *** CREATING TABLE 3 TABLE DATA *** ↓
     public String createThreeColumnTable() {
         return (String.format(CREATE_THREE_COLUMN_TABLE, getTableName(), getID(), getColumn1(), getColumn2(), getColumn3()));
     }
 
-    //** ADDED ***
+    // *** INSERTING INTO 3 TABLE DATA *** ↓
     public boolean insertThreeTableData(SQLiteDatabase db, String content1, String content2, String content3) {
         ContentValues values = new ContentValues();
         values.put(getColumn1(), content1);
@@ -71,7 +73,7 @@ public class DbEvent extends DataSet implements QueryStrings {
         return (row != (-1));
     }
 
-    //** OVERLOADED ***
+    //** (OVERLOADED) ***
     public boolean insertThreeTableData(SQLiteDatabase db, String content1, String content2, int content3) {
         ContentValues values = new ContentValues();
         values.put(getColumn1(), content1);
@@ -100,21 +102,12 @@ public class DbEvent extends DataSet implements QueryStrings {
     }
 
     // <======================== TABLE FUNCTIONALITY ========================>
+    // *** DROPS TABLE DATA *** ↓
     public String dropTable() {
         return (String.format(DROP_TABLE, getTableName()));
     }
 
-    /**** Added Function ****/
-    public int nextColumn(SQLiteDatabase db, int questionID) {
-        Cursor cursor = db.rawQuery(String.format(SELECT_NEXT_ID, getTableName(), questionID), null);
-        if (cursor != null) {
-            while (cursor.moveToNext())
-                cursor.moveToNext();
-        }
-        cursor.close();
-        return (questionID);
-    }
-
+    // *** GETS TOTAL COLUMN COUNT FROM THE TABLE DATA *** ↓
     public int getColumnCount(SQLiteDatabase db) {
         Cursor result = db.rawQuery(String.format(SELECT_ALL, getTableName()), null);
         if (result != null) {
@@ -130,6 +123,7 @@ public class DbEvent extends DataSet implements QueryStrings {
         return 0;
     }
 
+    // *** GETS TOTAL ROW COUNT FROM THE TABLE DATA *** ↓
     public int getRowCount(SQLiteDatabase db) {
         try {
             Cursor result = db.rawQuery(String.format(SELECT_ALL, getTableName()), null);
@@ -144,7 +138,7 @@ public class DbEvent extends DataSet implements QueryStrings {
                 result.close();
             }
         } catch (Exception e) {
-            throw new NullPointerException("Null Pointer Exception Found In GetRowCount");
+            throw new NullPointerException(GET_ROW_COUNT_DATA_ERROR);
         }
         return 0;
     }

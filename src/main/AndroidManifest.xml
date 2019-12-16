@@ -15,11 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".PopUpVideoPlayerActivity"
-            android:theme="@style/AppTheme.PopUpActivity"
-
-            />
-
+            android:theme="@style/AppTheme.PopUpActivity" />
         <activity android:name=".EquationLinesActivity" />
         <activity android:name=".LinearModelsActivity" />
         <activity android:name=".Functions2_3Activity" />

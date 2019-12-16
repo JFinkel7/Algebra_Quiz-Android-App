@@ -9,10 +9,6 @@ import Database.DatabaseOpenHandler;
 import Database.DbEvent;
 import QuizRepository.ILinearModelsQuestions;
 
-import static QuizRepository.IFunctions_2_3_Questions.QUESTION_1_VIDEO_PATH;
-import static QuizRepository.IFunctions_2_3_Questions.QUESTION_2_VIDEO_PATH;
-import static QuizRepository.IFunctions_2_3_Questions.QUESTION_3_VIDEO_PATH;
-
 
 public class LinearModels implements ILinearModelsQuestions {
     //*****
@@ -42,6 +38,7 @@ public class LinearModels implements ILinearModelsQuestions {
             dbEvent.insertThreeTableData(db, QUESTION_1, SOLUTION_1, QUESTION_1_VIDEO_PATH);
             dbEvent.insertThreeTableData(db, QUESTION_2, SOLUTION_2, QUESTION_2_VIDEO_PATH);
             dbEvent.insertThreeTableData(db, QUESTION_3, SOLUTION_3, QUESTION_3_VIDEO_PATH);
+            dbEvent.insertThreeTableData(db, QUESTION_4, SOLUTION_4, QUESTION_4_VIDEO_PATH);
         }
     }
 
@@ -81,12 +78,12 @@ public class LinearModels implements ILinearModelsQuestions {
         return (false);
     }
 
-    /*** (INFO) ADDED METHOD ***/
+    //*** Gets Video Path That Matches With The Random Question (RANDOM_INDEX) ***
     public int getRandomVideoPath() {
         return (Integer.parseInt(dbEvent.retrieveTableData(db, dbEvent.getColumn3(), randomIndex)));
     }
 
-    /*** (INFO) ADDED METHOD ***/
+    //*** Gets A Specific Solution Based On The Matching Solution ID ***
     public String getSolution(int Id) {
         if (Id > 0) {
             return (dbEvent.retrieveTableData(db, dbEvent.getColumn2(), Id));

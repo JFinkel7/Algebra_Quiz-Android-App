@@ -53,7 +53,7 @@ public class Functions2_3Activity extends AppCompatActivity {
         txtView_Questions.setText(functions_2_3.getQuestion());
     }
 
-    // Checks The Question
+    //***[Checks The Question]***/
     public void btn_Next(View view) {
         String input = Objects.requireNonNull(editText.getText()).toString().trim();
         boolean questionIsCorrect = functions_2_3.checkQuestion(input);
@@ -77,12 +77,12 @@ public class Functions2_3Activity extends AppCompatActivity {
 
     }
 
-    // Shows The Solution
+    //***[Shows The Solution]***/
     public void imgBtnShowHelp(View view) {
         Toast.makeText(Functions2_3Activity.this, functions_2_3.getRandomSolution(), Toast.LENGTH_SHORT).show();
     }
 
-    // Shows The Video Tutorial From The VideoView
+    //***[Shows The Video Tutorial From The VideoView]***/
     public void imgBtnShowVideoHelp(View view) {
         // Passing Resource Data To Another Activity
         Intent intent = new Intent(getBaseContext(), PopUpVideoPlayerActivity.class);
