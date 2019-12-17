@@ -13,6 +13,7 @@ import com.jfinkelstudios.mobile.algebraquizapp.R;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
+//(1) Create A Class That Extends Broadcast Receiver
 public class NotificationAlarm extends BroadcastReceiver {
 
     //*****> CLASS INSTANCE VARIABLES
@@ -33,10 +34,14 @@ public class NotificationAlarm extends BroadcastReceiver {
                 .setContentText(NOTIFICATION_TEXT)
                 .setSmallIcon(R.drawable.ic_spa24dp)
                 .setAutoCancel(true)
-                .setDefaults(NotificationCompat.DEFAULT_ALL)
         );
     }
 
+    public void sendNotification() {
+        // * Sends The Notification *
+        NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
+        this.notificationManager.notify(NOTIFICATION_ID, notifyBuilder.build());
+    }
 
     // ON_RECEIVE
     @Override
@@ -52,12 +57,15 @@ public class NotificationAlarm extends BroadcastReceiver {
             notificationChannel.setDescription(QUIZ_DESCRIPTION);
             notificationChannel.enableVibration(true);
             this.notificationManager.createNotificationChannel(notificationChannel);
-
+            sendNotification();
         }
-        // * Sends The Notification *
-        NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
-        this.notificationManager.notify(NOTIFICATION_ID, notifyBuilder.build());
+
     }
 
+    /*
+    *    Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MILLISECOND, 5000);
+        *  ALARM_MANAGER.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), NOTIFY_PENDING_INTENT);
+    * */
 
 }// END OF CLASS
