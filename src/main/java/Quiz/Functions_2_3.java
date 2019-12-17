@@ -3,14 +3,12 @@ package Quiz;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.util.Random;
-
 import Database.DatabaseOpenHandler;
 import Database.DbEvent;
 import QuizRepository.IFunctions_2_3_Questions;
 
 
-public class Functions_2_3 implements IFunctions_2_3_Questions {
+public class Functions_2_3 extends Configuration implements IFunctions_2_3_Questions {
     //*****
     private static final String DB_NAME = "Quiz";
     private static final String TABLE_NAME = "Functions_2_3";
@@ -18,20 +16,14 @@ public class Functions_2_3 implements IFunctions_2_3_Questions {
     private static final String COLUMN_1 = "Question";
     private static final String COLUMN_2 = "Solution";
     private static final String COLUMN_3 = "VideoPath";
-    private static final String EMPTY_STRING = "";
-    private int randomIndex = 1;
-    // DbDataSet
-    private SQLiteDatabase db;
-    private DatabaseOpenHandler dbHandler;
-    private DbEvent dbEvent;
     //*****
 
     /******CONSTRUCTOR******/
     public Functions_2_3(Context context) {
-        this.dbEvent = new DbEvent(1, DB_NAME, TABLE_NAME, COLUMN_ID, COLUMN_1, COLUMN_2, COLUMN_3);
-        this.dbHandler = new DatabaseOpenHandler(context, dbEvent);
-        this.db = dbHandler.getWritableDatabase();
-
+        DbEvent dbEvent = new DbEvent(1, DB_NAME, TABLE_NAME, COLUMN_ID, COLUMN_1, COLUMN_2, COLUMN_3);
+        DatabaseOpenHandler dbHandler = new DatabaseOpenHandler(context, dbEvent);
+        SQLiteDatabase db = dbHandler.getWritableDatabase();
+        super.configDbEntry(db, dbEvent);
         //*** Adding Data To The Table If None Exists ***
         if (!(dbEvent.getRowCount(db) >= 1)) {
             dbEvent.insertThreeTableData(db, QUESTION_1, SOLUTION_1, QUESTION_1_VIDEO_PATH);
@@ -44,57 +36,4 @@ public class Functions_2_3 implements IFunctions_2_3_Questions {
             dbEvent.insertThreeTableData(db, QUESTION_8, SOLUTION_8, QUESTION_8_VIDEO_PATH);
         }
     }
-
-
-    /*========================================CLASS METHODS========================================*/
-    // *** GETS The (1st) Question From The SQLite Table ***
-    public String getQuestion() {
-        return (dbEvent.retrieveTableData(db, dbEvent.getColumn1(), 1));
-    }
-
-    /*** (INFO) ADDED METHOD ***/
-    // *** (Overloaded) GETS The A Chosen Question From The SQLite Table Based On The ID Value ***
-    public String getQuestion(final int ID) {
-        return (dbEvent.retrieveTableData(db, dbEvent.getColumn1(), ID));
-    }
-
-    // *** GETS Random Question From The SQLite Table ***
-    public String getRandomQuestion() {
-        Random randomEvent = new Random();
-        final int MIN = 1;
-        final int MAX = dbEvent.getRowCount(db);
-        randomIndex = randomEvent.nextInt(MAX) + MIN;
-        //*** Returns The Random Int Value ***
-        return (dbEvent.retrieveTableData(db, dbEvent.getColumn1(), randomIndex));
-    }
-
-    //*** Gets Solution From The Matching Random Question ***
-    public String getRandomSolution() {
-        return (dbEvent.retrieveTableData(db, dbEvent.getColumn2(), randomIndex));
-    }
-
-    //*** Gets Video Path That Matches With The Random Question (RANDOM_INDEX) ***
-    public int getRandomVideoPath() {
-        return (Integer.parseInt(dbEvent.retrieveTableData(db, dbEvent.getColumn3(), randomIndex)));
-    }
-
-    //*** Checks To See If The Question Is Correct Based On The Matching Input ***
-    public boolean checkQuestion(String userInput) {
-        if (!(userInput.isEmpty())) {// Continue
-            String solution = getRandomSolution();
-            //*** Returns True If User Input Matches With The Solution ***
-            return (userInput.equals(solution));
-        }
-        return (false);
-    }
-
-
-    //*** Gets A Specific Solution Based On The Matching Solution ID ***
-    public String getSolution(int Id) {
-        if (Id > 0) {
-            return (dbEvent.retrieveTableData(db, dbEvent.getColumn2(), Id));
-        }
-        return (EMPTY_STRING);
-    }
-
-}
+}//END OF CLASS

@@ -12,20 +12,38 @@ public abstract class Configuration {
     private DbEvent dbEvent;
     private int randomIndex = 1;
 
-    public Configuration(SQLiteDatabase db, DbEvent dbEvent) {
+    // ** THIS MUST BE USED IN ORDER FOR REST OF THE CLASS TO WORK **
+    protected void configDbEntry(SQLiteDatabase db, DbEvent dbEvent) {
         this.db = db;
         this.dbEvent = dbEvent;
     }
+
 
     // *** GETS The (1st) Question From The SQLite Table ***
     public String getQuestion() {
         return (dbEvent.retrieveTableData(db, dbEvent.getColumn1(), 1));
     }
 
-    /*** (INFO) ADDED METHOD ***/
+
     // *** (Overloaded) GETS The A Chosen Question From The SQLite Table Based On The ID Value ***
-    public String getQuestion(final int ID) {
-        return (dbEvent.retrieveTableData(db, dbEvent.getColumn1(), ID));
+    public String getQuestion(int id) {
+        return (dbEvent.retrieveTableData(db, dbEvent.getColumn1(), id));
+    }
+
+    //*** Gets A Specific Solution Based On The Matching Solution ID ***
+    public String getSolution(int id) {
+        if (id > 0) {
+            return (dbEvent.retrieveTableData(db, dbEvent.getColumn2(), id));
+        }
+        return (EMPTY_STRING);
+    }
+
+    //*** Gets A Specific VideoPath Based On The Matching Table ID ***
+    public int getVideoPath(int id) {
+        if (id > 0) {
+            return (Integer.parseInt(dbEvent.retrieveTableData(db, dbEvent.getColumn3(), id)));
+        }
+        return (0);
     }
 
     // *** GETS Random Question From The SQLite Table ***
@@ -43,26 +61,20 @@ public abstract class Configuration {
         return (dbEvent.retrieveTableData(db, dbEvent.getColumn2(), randomIndex));
     }
 
-    //*** Checks To See If The Question Is Correct Based On The Matching Input ***
-    public boolean checkQuestion(String userInput) {
-        if (!(userInput.isEmpty())) {// Continue
-            //*** Returns True If User Input Matches With The Solution ***
-            return (userInput.equals(getRandomSolution()));
-        }
-        return (false);
-    }
-
-    /*** (INFO) ADDED METHOD ***/
+    //*** Gets Video Path That Matches With The Random Question (RANDOM_INDEX) ***
     public int getRandomVideoPath() {
         return (Integer.parseInt(dbEvent.retrieveTableData(db, dbEvent.getColumn3(), randomIndex)));
     }
 
-    /*** (INFO) ADDED METHOD ***/
-    //*** Gets A Specific Solution Based On The Matching Solution ID ***
-    public String getSolution(int Id) {
-        if (Id > 0) {
-            return (dbEvent.retrieveTableData(db, dbEvent.getColumn2(), Id));
+    //*** Checks To See If The Question Is Correct Based On The Matching Input ***
+    public boolean checkQuestion(String userInput) {
+        if (!(userInput.isEmpty())) {// Continue
+            String solution = getRandomSolution();
+            //*** Returns True If User Input Matches With The Solution ***
+            return (userInput.equals(solution));
         }
-        return (EMPTY_STRING);
+        return (false);
     }
+
+
 }

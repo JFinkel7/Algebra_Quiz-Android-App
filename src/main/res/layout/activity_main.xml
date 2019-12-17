@@ -18,9 +18,20 @@
 
         <!-- TEXT VIEW -->
         <TextView
+            android:id="@+id/txtView_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hello"
+            android:textAlignment="center"
+            android:textColor="@color/Black" />
+
+        <ToggleButton
+            android:id="@+id/switchAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtView_Title"
+            android:checked="true"
+            android:text="Alarm Config"
             android:textAlignment="center"
             android:textColor="@color/Black" />
     </RelativeLayout>

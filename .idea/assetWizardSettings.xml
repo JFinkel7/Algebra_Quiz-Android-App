@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Users/User/Documents/2%20Android%20Studio%20Apps/X%20Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_live_help_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Users/User/Documents/2%20Android%20Studio%20Apps/X%20Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/places/ic_spa_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="79e1e4" />
-                            <entry key="outputName" value="ic_live_help24dp" />
+                            <entry key="outputName" value="ic_spa24dp" />
                             <entry key="sourceFile" value="C:\Users\User" />
                           </map>
                         </option>

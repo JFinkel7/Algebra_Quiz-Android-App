@@ -19,6 +19,7 @@ import Quiz.Functions_2_3;
 import Quiz.SoundEffects;
 
 public class Functions2_3Activity extends AppCompatActivity {
+    //*****> CLASS INSTANCE VARIABLES
     //* Data Types
     private static final String PROPERTY_NAME = "progress";
     private static final String INFO = "INFO:";
@@ -32,7 +33,7 @@ public class Functions2_3Activity extends AppCompatActivity {
     //* Classes
     private Functions_2_3 functions_2_3;
     private SoundEffects correctSoundEffect, inCorrectSoundEffect;
-
+    
     //********>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,8 @@ public class Functions2_3Activity extends AppCompatActivity {
         functions_2_3 = new Functions_2_3(Functions2_3Activity.this);
         /***Initialize's The Table Functions_2_3 Question When Loading The App***/
         txtView_Questions.setText(functions_2_3.getQuestion());
+
+
     }
 
     //***[Checks The Question]***/

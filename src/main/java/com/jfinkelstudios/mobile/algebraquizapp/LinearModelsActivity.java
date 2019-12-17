@@ -18,9 +18,9 @@ import Quiz.LinearModels;
 import Quiz.SoundEffects;
 
 public class LinearModelsActivity extends AppCompatActivity {
+    //*****> CLASS INSTANCE VARIABLES
     //* Data Types
     private static final String PROPERTY_NAME = "progress";
-    //*****
     //* VIEWS
     ProgressBar progressBar;
     private static int currentProgress = 0;
@@ -32,7 +32,7 @@ public class LinearModelsActivity extends AppCompatActivity {
     private SoundEffects correctSound, inCorrectSound, dragStartSound, dragEndSound;
     private LinearModels linearModels;
 
-    //********>
+    //*****
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
