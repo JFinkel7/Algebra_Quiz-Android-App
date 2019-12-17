@@ -12,29 +12,152 @@
     tools:ignore="PrivateResource">
 
     <!-- Drawer Relative Layout -->
-    <RelativeLayout
+    <GridLayout
+        android:id="@+id/mainActivityGridLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:alignmentMode="alignMargins"
+        android:background="@mipmap/img_math_pi_480x800"
+        android:columnCount="2"
+        android:elevation="2dp"
+        android:padding="14dp"
+        android:rowCount="2">
+        <!-- CARD Layout -->
 
-        <!-- TEXT VIEW -->
-        <TextView
-            android:id="@+id/txtView_Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello"
-            android:textAlignment="center"
-            android:textColor="@color/Black" />
+        <!--ROW 1-->
+        <!--COLUMN 1-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="16dp"
+            android:background="@color/Black"
+            android:backgroundTint="@color/background_material_light"
+            android:padding="2dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="4dp">
+            <!-- CARD Layout CONTENT'S -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
 
-        <ToggleButton
-            android:id="@+id/switchAlarm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtView_Title"
-            android:checked="true"
-            android:text="Alarm Config"
-            android:textAlignment="center"
-            android:textColor="@color/Black" />
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/imgView_Help"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center_horizontal"
+                    android:elevation="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_company_info60" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--ROW 1-->
+        <!--COLUMN 2-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mainActivityCardLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="16dp"
+            android:background="@color/Black"
+            android:backgroundTint="@color/background_material_light"
+            android:padding="2dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="4dp">
+            <!-- CARD Layout CONTENT'S -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgView_About"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:elevation="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_about60" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--ROW 2-->
+        <!--COLUMN 1-->
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="16dp"
+            android:background="@color/Black"
+            android:backgroundTint="@color/background_material_light"
+            android:padding="2dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="4dp">
+            <!-- CARD Layout CONTENT'S -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgView_Progress"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center_horizontal"
+                    android:elevation="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_progress60" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--ROW 2-->
+        <!--COLUMN 1-->
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="16dp"
+            android:background="@color/Black"
+            android:backgroundTint="@color/background_material_light"
+            android:padding="2dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="4dp">
+            <!-- CARD Layout CONTENT'S -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgView_Settings"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center_horizontal"
+                    android:elevation="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_settings60" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
 
 
     <!--SIDE NAVIGATION VIEW -->

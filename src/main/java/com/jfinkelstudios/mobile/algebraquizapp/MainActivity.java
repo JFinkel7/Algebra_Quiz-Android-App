@@ -9,12 +9,11 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -24,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
     //*****> CLASS INSTANCE VARIABLES
     private static final int NOTIFICATION_ID = 0;
     // * Alarm Time Config *
-    private static final long ALARM_REPEATED_INTERVAL = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
-    private static final long TRIGGER_TIME = SystemClock.elapsedRealtime() + 5000;
+    private static final long ALARM_REPEATED_INTERVAL = AlarmManager.INTERVAL_DAY;
+    private static final long TRIGGER_TIME = SystemClock.elapsedRealtime() + (ALARM_REPEATED_INTERVAL);
+    private static final String INFO = "INFO:";
+    private static final String ALARM_ACTIVITY_DEBUG_INFO = "Alarm Has Started";
 
     //*****>
     @Override
@@ -33,13 +34,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         /***FIND VIEW BY ID'S***/
-        final DrawerLayout DRAWER_LAYOUT = findViewById(R.id.mainActivityDrawerLayout);
         final NavigationView NAVIGATION_VIEW = findViewById(R.id.mainActivityNavigationView);
+        /***STARTS THE ALARM TO REMIND USER TO STUDY DAILY***/
+        /* ALARM MANGER CONFIGURATION */
+        final AlarmManager ALARM_MANAGER = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-        /***TOGGLE BUTTON SWITCH CONFIG***/
-        //ToggleButton alarmSwitch = findViewById(R.id.switchAlarm);
-        //alarmSwitch.setChecked(startAlarm());
-        startAlarm();
+        /* INTENT & PENDING CONFIGURATION */
+        final Intent NOTIFY_INTENT = new Intent(MainActivity.this, NotificationAlarm.class);
+        final PendingIntent NOTIFY_PENDING_INTENT = PendingIntent.getBroadcast(this, NOTIFICATION_ID, NOTIFY_INTENT, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        /* SETS THE TIME INITIATION CONFIGURATION */
+        // *  Set The Repeating Alarm In 5secs With A 1 Day Interval *
+        if (ALARM_MANAGER != null) {
+            ALARM_MANAGER.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, TRIGGER_TIME, ALARM_REPEATED_INTERVAL, NOTIFY_PENDING_INTENT);
+            Log.i(INFO, ALARM_ACTIVITY_DEBUG_INFO);
+        } else {
+            if (ALARM_MANAGER != null) {
+                ALARM_MANAGER.cancel(NOTIFY_PENDING_INTENT);
+            }
+        }
 
         /***NAVIGATION_VIEW ITEM SELECTION***/
         NAVIGATION_VIEW.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -67,27 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }// END OF ON CREATE
-
-    private void startAlarm() {
-        /***ALARM MANGER CONFIGURATION***/
-        final AlarmManager ALARM_MANAGER = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-        /***INTENT & PENDING CONFIGURATION***/
-        final Intent NOTIFY_INTENT = new Intent(MainActivity.this, NotificationAlarm.class);
-        final PendingIntent NOTIFY_PENDING_INTENT = PendingIntent.getBroadcast(this, NOTIFICATION_ID, NOTIFY_INTENT, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        /***SETS THE TIME INITIATION CONFIGURATION***/
-        // *  Set The Repeating Alarm In 5secs With A 15 Minute Interval *
-        if (ALARM_MANAGER != null) {
-            ALARM_MANAGER.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, TRIGGER_TIME, ALARM_REPEATED_INTERVAL, NOTIFY_PENDING_INTENT);
-            Toast.makeText(this, "Alarm set in", Toast.LENGTH_LONG).show();
-        } else {
-            if (ALARM_MANAGER != null) {
-                ALARM_MANAGER.cancel(NOTIFY_PENDING_INTENT);
-            }
-        }
-
-    }
 
 
 }// END OF CLASS
