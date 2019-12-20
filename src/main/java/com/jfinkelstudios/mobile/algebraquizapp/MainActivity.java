@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static final long TRIGGER_TIME = SystemClock.elapsedRealtime() + (ALARM_REPEATED_INTERVAL);
     private static final String INFO = "INFO:";
     private static final String ALARM_ACTIVITY_DEBUG_INFO = "Alarm Has Started";
+
 
     //*****>
     @Override
@@ -52,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
             if (ALARM_MANAGER != null) {
                 ALARM_MANAGER.cancel(NOTIFY_PENDING_INTENT);
             }
-        }
+
+        }// END OF CREATE
 
         /***NAVIGATION_VIEW ITEM SELECTION***/
         NAVIGATION_VIEW.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -81,5 +84,12 @@ public class MainActivity extends AppCompatActivity {
 
     }// END OF ON CREATE
 
+    // STARTS THE ProgressActivity
+    public void btn_ImgViewProgress(View view) {
+        startActivity(new Intent(MainActivity.this, ProgressActivity.class));
+    }
+
+
+    //
 
 }// END OF CLASS

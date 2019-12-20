@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.jfinkelstudios.mobile.algebraquizapp">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--ADDITIONAL PERMISSIONS-->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- ADDITIONAL PERMISSIONS -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--Accessing USAGE STATS-->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
 
     <application
         android:allowBackup="true"
@@ -17,29 +22,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <!--PopUpVideoPlayerActivity-->
+        <activity android:name=".ProgressActivity"></activity>
+        <!-- PopUpVideoPlayerActivity -->
         <activity
             android:name=".PopUpVideoPlayerActivity"
-            android:theme="@style/AppTheme.PopUpActivity" />
-        <!--EquationLinesActivity-->
-        <activity android:name=".EquationLinesActivity" />
-        <!--LinearModelsActivity-->
-        <activity android:name=".LinearModelsActivity" />
-        <!--Functions2_3Activity-->
-        <activity android:name=".Functions2_3Activity" />
-        <!--MainActivity-->
+            android:theme="@style/AppTheme.PopUpActivity" /> <!-- EquationLinesActivity -->
+        <activity android:name=".EquationLinesActivity" /> <!-- LinearModelsActivity -->
+        <activity android:name=".LinearModelsActivity" /> <!-- Functions2_3Activity -->
+        <activity android:name=".Functions2_3Activity" /> <!-- MainActivity -->
         <activity android:name=".MainActivity">
-            <!--INTENT FILTER-->
+
+            <!-- INTENT FILTER -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <!--FOR ALARM MANGER-->
-        <receiver android:name="Quiz.NotificationAlarm"></receiver>
-        <!--END OF APPLICATION-->
+        </activity> <!-- FOR ALARM MANGER -->
+        <receiver android:name="Quiz.NotificationAlarm" />
     </application>
+
 </manifest>

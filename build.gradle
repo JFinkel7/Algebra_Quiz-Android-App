@@ -33,6 +33,8 @@ dependencies {
     implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
     // * Customized Toast *
     implementation 'com.github.GrenderG:Toasty:1.4.2'
+    //* PhilJay/MPAndroidChart *
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     //*
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Black"
+    android:orientation="vertical"
+    android:padding="7dp"
+    tools:context=".ProgressActivity"
+    tools:ignore="PrivateResource">
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/BarChart"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:elevation="4dp" />
+
+</RelativeLayout>
