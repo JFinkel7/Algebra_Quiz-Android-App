@@ -14,10 +14,9 @@ public class ScoreKeeper {
     private SharedPreferences.Editor editor;
     // Class Instance Variables
     private int quizzesCompleted;
-    private int totalTimeSpent;
-    private int dailyStreaks;
+    private int totalPoints;
+    private int timeSpent;
     private Context context;
-    private int savedDailyStreaksData;
 
 
     public ScoreKeeper(Context context) {

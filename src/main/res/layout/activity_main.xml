@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:layout_margin="2dp"
         android:alignmentMode="alignMargins"
-        android:background="@color/blue_Black"
+        android:background="@android:color/transparent"
         android:columnCount="2"
         android:elevation="2dp"
         android:padding="14dp"
@@ -110,6 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
+                android:onClick="btn_ProgressActivity"
                 android:orientation="vertical">
 
                 <ImageView
@@ -117,7 +118,6 @@
                     android:layout_width="65dp"
                     android:layout_height="65dp"
                     android:layout_gravity="center_horizontal"
-                    android:onClick="btn_ImgViewProgress"
                     android:elevation="4dp"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/ic_progress60" />
@@ -143,6 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
+                android:onClick="btn_SettingsActivity"
                 android:orientation="vertical">
 
                 <ImageView

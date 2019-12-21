@@ -21,6 +21,11 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="quizzes_completed">Quizzes Completed</string>
+    <string name="points">Points</string>
+    <string name="time">Time</string>
+    <string name="night_mode_on">Night Mode On</string>
+    <string name="night_mode_off">Night Mode Off</string>
 
 
 </resources>

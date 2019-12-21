@@ -85,8 +85,12 @@ public class MainActivity extends AppCompatActivity {
     }// END OF ON CREATE
 
     // STARTS THE ProgressActivity
-    public void btn_ImgViewProgress(View view) {
+    public void btn_ProgressActivity(View view) {
         startActivity(new Intent(MainActivity.this, ProgressActivity.class));
+    }
+
+    public void btn_SettingsActivity(View view) {
+        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
     }
 
 

@@ -13,6 +13,53 @@
         android:id="@+id/BarChart"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:elevation="4dp" />
+        android:layout_margin="0dp"/>
+
+    <!-- TextView Linear Layout Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="5dp"
+        android:background="@color/black_Charcoal"
+        android:elevation="4dp"
+        android:orientation="horizontal">
+
+        <!--Txt Quiz Completed-->
+        <TextView
+            android:id="@+id/txtView_QuizCompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="5dp"
+            android:text="@string/quizzes_completed"
+            android:textAlignment="center"
+            android:textColor="@color/Azure"
+            android:textStyle="italic" />
+
+        <!--Txt Total Points-->
+        <TextView
+            android:id="@+id/txtView_TotalPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="35dp"
+            android:text="@string/points"
+            android:textAlignment="center"
+            android:textColor="@color/Azure"
+            android:textStyle="italic" />
+
+        <!--Txt Total Usage Time-->
+        <TextView
+            android:id="@+id/txtView_TotalUsageTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="65dp"
+            android:text="@string/time"
+            android:textAlignment="center"
+            android:textColor="@color/Azure"
+            android:textStyle="italic" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -38,14 +38,13 @@ public class ProgressActivity extends AppCompatActivity {
         // GETS THE ENTRY
         getEntries();
         // SETS THE BAR DATA SET
-        barDataSet = new BarDataSet(barEntries, "Your Stats");
+        barDataSet = new BarDataSet(barEntries, "");
         barData = new BarData(barDataSet);
         // SETS THE CHART
         barChart.setData(barData);
         barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+        barDataSet.setValueTextSize(20f);
         barDataSet.setValueTextColor(Color.WHITE);
-        barDataSet.setValueTextSize(18f);
-
 
     }
 

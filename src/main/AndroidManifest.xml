@@ -8,12 +8,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- ADDITIONAL PERMISSIONS -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!--Accessing USAGE STATS-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- Accessing USAGE STATS -->
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
-
 
     <application
         android:allowBackup="true"
@@ -22,8 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProgressActivity"></activity>
-        <!-- PopUpVideoPlayerActivity -->
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".ProgressActivity" /> <!-- PopUpVideoPlayerActivity -->
         <activity
             android:name=".PopUpVideoPlayerActivity"
             android:theme="@style/AppTheme.PopUpActivity" /> <!-- EquationLinesActivity -->
