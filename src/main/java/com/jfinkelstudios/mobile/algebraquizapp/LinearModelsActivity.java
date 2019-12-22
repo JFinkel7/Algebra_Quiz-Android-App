@@ -4,12 +4,14 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,9 +27,10 @@ public class LinearModelsActivity extends AppCompatActivity {
     ProgressBar progressBar;
     private static int currentProgress = 0;
     private String chosenAnswer;
-    private TextView txtViewQuestion;
+    private TextView txtViewQuestion, txtViewTarget;
     private Button btnQuestion_1, btnQuestion_2;
     private Button btnQuestion_3, btnQuestion_4;
+    private RelativeLayout mainRelativeLayout;
     //* Classes
     private SoundEffects correctSound, inCorrectSound, dragStartSound, dragEndSound;
     private LinearModels linearModels;
@@ -43,7 +46,8 @@ public class LinearModelsActivity extends AppCompatActivity {
         btnQuestion_3 = findViewById(R.id.btnQuestion3);
         btnQuestion_4 = findViewById(R.id.btnQuestion4);
         txtViewQuestion = findViewById(R.id.txtView_Question);
-        TextView txtViewTarget = findViewById(R.id.txtView_Target);
+        mainRelativeLayout = findViewById(R.id.linearModelsMainRelativeLayout);
+        txtViewTarget = findViewById(R.id.txtView_Target);
         progressBar = findViewById(R.id.progressBar);
         /***CLASS Object Construction***/
         linearModels = new LinearModels(LinearModelsActivity.this);
@@ -73,7 +77,24 @@ public class LinearModelsActivity extends AppCompatActivity {
         setMotionEventListener(btnQuestion_4);
         // SETTING DRAG LISTENER ON TXT_VIEW TARGET
         setDragListener(txtViewTarget);
-    }
+        if (MainActivity.nightModeResult) {
+            mainRelativeLayout.setBackgroundColor(Color.BLACK);
+            txtViewTarget.setBackgroundColor(Color.WHITE);
+            txtViewQuestion.setTextColor(Color.WHITE);
+            // BTN 1
+            btnQuestion_1.setBackgroundColor(Color.WHITE);
+            btnQuestion_1.setTextColor(Color.BLACK);
+            // BTN 2
+            btnQuestion_2.setBackgroundColor(Color.WHITE);
+            btnQuestion_2.setTextColor(Color.BLACK);
+            // BTN 3
+            btnQuestion_3.setBackgroundColor(Color.WHITE);
+            btnQuestion_3.setTextColor(Color.BLACK);
+            // BTN 4
+            btnQuestion_4.setBackgroundColor(Color.WHITE);
+            btnQuestion_4.setTextColor(Color.BLACK);
+        }
+    }// END OF CREATE
 
     //***[Sets PopUp Video Activity]***/
     public void imgBtnShowVideoHelp(View view) {

@@ -13,7 +13,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-import Quiz.ScoreKeeper;
+import Quiz.DataSaver;
 
 public class ProgressActivity extends AppCompatActivity {
     //*******>
@@ -22,7 +22,7 @@ public class ProgressActivity extends AppCompatActivity {
     BarDataSet barDataSet;
     ArrayList<BarEntry> barEntries;
     // Score Keeper
-    private ScoreKeeper scoreKeeper;
+    private DataSaver dataSaver;
     private int data = 1;
 
     //*******>
@@ -33,8 +33,8 @@ public class ProgressActivity extends AppCompatActivity {
         // FIND VIEW BY'ID
         barChart = findViewById(R.id.BarChart);
         // SCORE KEEPER
-        scoreKeeper = new ScoreKeeper(ProgressActivity.this);
-        scoreKeeper.saveData(data);
+        dataSaver = new DataSaver(ProgressActivity.this);
+        dataSaver.saveData(data);
         // GETS THE ENTRY
         getEntries();
         // SETS THE BAR DATA SET
@@ -51,7 +51,7 @@ public class ProgressActivity extends AppCompatActivity {
     private void getEntries() {
         barEntries = new ArrayList<>();
         // * DAILY STREAKS *
-        barEntries.add(new BarEntry(1f, scoreKeeper.loadData()));
+        barEntries.add(new BarEntry(1f, dataSaver.loadData()));
         // * Daily Study Time Spent *
         barEntries.add(new BarEntry(2f, 2));
         // * # Of Quiz Completed *

@@ -28,17 +28,19 @@
         <!--ROW 1-->
         <!--COLUMN 1-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="16dp"
-            android:backgroundTint="@color/Black"
             android:padding="2dp"
+            app:cardBackgroundColor="@color/Black"
             app:cardCornerRadius="15dp"
             app:cardElevation="4dp">
             <!-- CARD Layout CONTENT'S -->
             <LinearLayout
+                android:id="@+id/linearLayout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -52,7 +54,8 @@
                     android:layout_gravity="center_horizontal"
                     android:elevation="4dp"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_company_info60" />
+                    android:src="@mipmap/ic_company_info60"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -60,24 +63,23 @@
         <!--ROW 1-->
         <!--COLUMN 2-->
         <androidx.cardview.widget.CardView
-            android:id="@+id/mainActivityCardLayout"
+            android:id="@+id/cardView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="16dp"
-            android:background="@color/Black"
-            android:backgroundTint="@color/Black"
             android:padding="2dp"
+            app:cardBackgroundColor="@color/Black"
             app:cardCornerRadius="15dp"
             app:cardElevation="4dp">
             <!-- CARD Layout CONTENT'S -->
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
-
                 android:orientation="vertical">
 
                 <ImageView
@@ -87,25 +89,27 @@
                     android:layout_gravity="center_horizontal"
                     android:elevation="4dp"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_about60" />
+                    android:src="@mipmap/ic_about60"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <!--ROW 2-->
         <!--COLUMN 1-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="16dp"
-            android:background="@color/Black"
-            android:backgroundTint="@color/Black"
             android:padding="2dp"
+            app:cardBackgroundColor="@color/Black"
             app:cardCornerRadius="15dp"
             app:cardElevation="4dp">
             <!-- CARD Layout CONTENT'S -->
             <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -120,25 +124,27 @@
                     android:layout_gravity="center_horizontal"
                     android:elevation="4dp"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_progress60" />
+                    android:src="@mipmap/ic_progress60"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <!--ROW 2-->
         <!--COLUMN 1-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="16dp"
-            android:background="@color/Black"
-            android:backgroundTint="@color/Black"
             android:padding="2dp"
+            app:cardBackgroundColor="@color/Black"
             app:cardCornerRadius="15dp"
             app:cardElevation="4dp">
             <!-- CARD Layout CONTENT'S -->
             <LinearLayout
+                android:id="@+id/linearLayout4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -153,7 +159,8 @@
                     android:layout_gravity="center_horizontal"
                     android:elevation="4dp"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_settings60" />
+                    android:src="@mipmap/ic_settings60"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>

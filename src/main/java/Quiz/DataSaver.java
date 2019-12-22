@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class ScoreKeeper {
+public class DataSaver {
     // Shared Preference Variables
     private static final String SHARED_PREF_ID = "com.jfinkelstudios.mobile.algebraquizapp";
     private static final String DAILY_STREAKS_KEY = "Daily_Streaks";
@@ -19,7 +19,7 @@ public class ScoreKeeper {
     private Context context;
 
 
-    public ScoreKeeper(Context context) {
+    public DataSaver(Context context) {
         this.context = context;
     }
 
@@ -39,4 +39,6 @@ public class ScoreKeeper {
     public void cleaAllData() {
         editor.clear();
     }
-}
+
+
+}// END OF CLASS

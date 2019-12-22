@@ -2,10 +2,13 @@ package com.jfinkelstudios.mobile.algebraquizapp;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,10 +33,12 @@ public class Functions2_3Activity extends AppCompatActivity {
     private TextView txtView_Questions;
     private AnimatedEditText editText;
     private ProgressBar progressBar;
+    private Button btnNext;
+    private RelativeLayout mainRelativeLayout;
     //* Classes
     private Functions_2_3 functions_2_3;
     private SoundEffects correctSoundEffect, inCorrectSoundEffect;
-    
+
     //********>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,8 @@ public class Functions2_3Activity extends AppCompatActivity {
         editText = findViewById(R.id.editTxt_UserInput);
         txtView_Questions = findViewById(R.id.txtView_QuestionInstructions);
         progressBar = findViewById(R.id.progressBar);
+        btnNext = findViewById(R.id.btnNext);
+        mainRelativeLayout = findViewById(R.id.functions_2_3MainRelativeLayout);
         /*****Sound Effects*****/
         correctSoundEffect = new SoundEffects(Functions2_3Activity.this, 1);
         correctSoundEffect.setSound(R.raw.single_small_bell);
@@ -52,7 +59,13 @@ public class Functions2_3Activity extends AppCompatActivity {
         functions_2_3 = new Functions_2_3(Functions2_3Activity.this);
         /***Initialize's The Table Functions_2_3 Question When Loading The App***/
         txtView_Questions.setText(functions_2_3.getQuestion());
-
+        if (MainActivity.nightModeResult) {
+            mainRelativeLayout.setBackgroundColor(Color.BLACK);
+            btnNext.setBackgroundColor(Color.WHITE);
+            btnNext.setTextColor(Color.BLACK);
+            editText.setTextColor(Color.WHITE);
+            txtView_Questions.setTextColor(Color.WHITE);
+        }
 
     }
 

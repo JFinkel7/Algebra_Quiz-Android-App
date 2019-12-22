@@ -7,14 +7,17 @@ package com.jfinkelstudios.mobile.algebraquizapp;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private static final long TRIGGER_TIME = SystemClock.elapsedRealtime() + (ALARM_REPEATED_INTERVAL);
     private static final String INFO = "INFO:";
     private static final String ALARM_ACTIVITY_DEBUG_INFO = "Alarm Has Started";
+    protected static boolean nightModeResult;
 
 
     //*****>
@@ -37,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         /***FIND VIEW BY ID'S***/
         final NavigationView NAVIGATION_VIEW = findViewById(R.id.mainActivityNavigationView);
+        final GridLayout GRID_LAYOUT = findViewById(R.id.mainActivityGridLayout);
+        final CardView CARD_VIEW_1 = findViewById(R.id.cardView1);
+        final CardView CARD_VIEW_2 = findViewById(R.id.cardView2);
+        final CardView CARD_VIEW_3 = findViewById(R.id.cardView3);
+        final CardView CARD_VIEW_4 = findViewById(R.id.cardView4);
         /***STARTS THE ALARM TO REMIND USER TO STUDY DAILY***/
         /* ALARM MANGER CONFIGURATION */
         final AlarmManager ALARM_MANAGER = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -54,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
             if (ALARM_MANAGER != null) {
                 ALARM_MANAGER.cancel(NOTIFY_PENDING_INTENT);
             }
-
-        }// END OF CREATE
+        }
 
         /***NAVIGATION_VIEW ITEM SELECTION***/
         NAVIGATION_VIEW.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -81,7 +89,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        // GETS BOOLEAN VALUE FROM SETTINGS ACTIVITY
+        nightModeResult = getIntent().getBooleanExtra("background_change", false);
+        if (nightModeResult) {
+            GRID_LAYOUT.setBackgroundColor(Color.BLACK);
+            CARD_VIEW_1.setCardBackgroundColor(Color.WHITE);
+            CARD_VIEW_2.setCardBackgroundColor(Color.WHITE);
+            CARD_VIEW_3.setCardBackgroundColor(Color.WHITE);
+            CARD_VIEW_4.setCardBackgroundColor(Color.WHITE);
+        }
     }// END OF ON CREATE
 
     // STARTS THE ProgressActivity
@@ -93,7 +109,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, SettingsActivity.class));
     }
 
-
-    //
 
 }// END OF CLASS
