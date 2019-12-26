@@ -24,21 +24,21 @@ public class NotificationAlarm extends BroadcastReceiver {
     private static final String NOTIFICATION_TEXT = "Knowledge Is Power Remember";
     private static final int NOTIFICATION_ID = 0;
     private Context context;
-    //*
     private NotificationManager notificationManager;
+    //*****>
 
     /***NOTIFICATION BUILDER CONFIGURATION***/
     private NotificationCompat.Builder getNotificationBuilder() {
         return (new NotificationCompat.Builder(this.context, PRIMARY_CHANNEL_ID)
                 .setContentTitle(NOTIFICATION_TITLE)
                 .setContentText(NOTIFICATION_TEXT)
-                .setSmallIcon(R.drawable.ic_spa24dp)
+                .setSmallIcon(R.mipmap.ic_spa24dp)
                 .setAutoCancel(true)
         );
     }
 
+    // * Sends The Notification *
     public void sendNotification() {
-        // * Sends The Notification *
         NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
         this.notificationManager.notify(NOTIFICATION_ID, notifyBuilder.build());
     }
@@ -59,13 +59,6 @@ public class NotificationAlarm extends BroadcastReceiver {
             this.notificationManager.createNotificationChannel(notificationChannel);
             sendNotification();
         }
-
     }
-
-    /*
-    *    Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.MILLISECOND, 5000);
-        *  ALARM_MANAGER.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), NOTIFY_PENDING_INTENT);
-    * */
 
 }// END OF CLASS

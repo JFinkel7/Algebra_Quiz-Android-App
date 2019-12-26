@@ -52,7 +52,7 @@ public class Functions2_3Activity extends AppCompatActivity {
         mainRelativeLayout = findViewById(R.id.functions_2_3MainRelativeLayout);
         /*****Sound Effects*****/
         correctSoundEffect = new SoundEffects(Functions2_3Activity.this, 1);
-        correctSoundEffect.setSound(R.raw.single_small_bell);
+        correctSoundEffect.setSound(R.raw.sound_small_bell);
         inCorrectSoundEffect = new SoundEffects(Functions2_3Activity.this, 1);
         inCorrectSoundEffect.setSound(R.raw.sound_error_2);
         /***Functions_2_3 Initialization***/

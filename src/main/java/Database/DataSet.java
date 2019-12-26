@@ -1,5 +1,7 @@
 package Database;
 
+import android.database.sqlite.SQLiteOpenHelper;
+
 public abstract class DataSet {
 
     private int version;

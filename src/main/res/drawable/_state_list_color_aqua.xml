@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- STATE EFFECT -->
+    <item
+        android:color="@color/blue_Aqua"
+        android:state_drag_can_accept="true"
+        android:state_enabled="true">
+
+    </item>
+    <!-- RIPPLE EFFECT -->
+    <item>
+        <ripple android:color="@color/green_Aqua">
+            <item android:id="@android:id/mask">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/gray_Light" />
+                    <corners android:radius="2dp" />
+                </shape>
+            </item>
+
+            <item android:id="@android:id/background">
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:angle="90"
+                        android:centerColor="@color/background_material_light"
+                        android:endColor="@color/Silver"
+                        android:startColor="@color/background_material_light"
+                        android:type="linear"
+                        tools:ignore="PrivateResource" />
+                    <corners android:radius="2dp" />
+                </shape>
+            </item>
+
+        </ripple>
+    </item>
+</layer-list>

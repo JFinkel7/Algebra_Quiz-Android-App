@@ -26,6 +26,11 @@
     <string name="time">Time</string>
     <string name="night_mode_on">Night Mode On</string>
     <string name="night_mode_off">Night Mode Off</string>
-
+    <string name="apply">Apply</string>
+    <string name="quiz_selection">Quiz Selection</string>
+    <string name="confirm">Confirm</string>
+    <string name="drag_the_answer_here">Drag The Answer Here</string>
+    <string name="functions_2_3">Functions_2_3</string>
+    <string name="linearmodels">LinearModels</string>
 
 </resources>

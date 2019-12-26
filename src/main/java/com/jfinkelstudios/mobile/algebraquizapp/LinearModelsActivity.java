@@ -53,7 +53,7 @@ public class LinearModelsActivity extends AppCompatActivity {
         linearModels = new LinearModels(LinearModelsActivity.this);
         // correctSound
         correctSound = new SoundEffects(this, 1);
-        correctSound.setSound(R.raw.single_small_bell);
+        correctSound.setSound(R.raw.sound_small_bell);
         // inCorrectSound
         inCorrectSound = new SoundEffects(this, 1);
         inCorrectSound.setSound(R.raw.sound_error_2);

@@ -5,10 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import Database.DatabaseOpenHandler;
 import Database.DbEvent;
-import QuizRepository.IFunctions_2_3_Questions;
+import QuizRepository.IFunctions_2_3Questions;
 
 
-public class Functions_2_3 extends Configuration implements IFunctions_2_3_Questions {
+public class Functions_2_3 extends Configuration implements IFunctions_2_3Questions {
     //*****
     private static final String DB_NAME = "Quiz";
     private static final String TABLE_NAME = "Functions_2_3";

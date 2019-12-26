@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 0;
     // * Alarm Time Config *
     private static final long ALARM_REPEATED_INTERVAL = AlarmManager.INTERVAL_DAY;
-    private static final long TRIGGER_TIME = SystemClock.elapsedRealtime() + (ALARM_REPEATED_INTERVAL);
+    private static final long TRIGGER_TIME = SystemClock.elapsedRealtime() + (AlarmManager.INTERVAL_FIFTEEN_MINUTES);
     private static final String INFO = "INFO:";
     private static final String ALARM_ACTIVITY_DEBUG_INFO = "Alarm Has Started";
     protected static boolean nightModeResult;

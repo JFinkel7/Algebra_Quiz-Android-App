@@ -17,6 +17,7 @@ public class SettingsActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private boolean isChecked;
+    private ToggleButton toggleNightMode;
     //*****>
 
     @Override
@@ -24,7 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         /***FIND VIEW BY ID'S***/
-        ToggleButton toggleNightMode = findViewById(R.id.toggleBtn_NightMode);
+        toggleNightMode = findViewById(R.id.toggleBtn_NightMode);
         toggleNightMode.setChecked(loadData());
         toggleNightMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -55,4 +56,9 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        toggleNightMode.setVisibility(View.GONE);
+    }
 }// END OF CLASS
