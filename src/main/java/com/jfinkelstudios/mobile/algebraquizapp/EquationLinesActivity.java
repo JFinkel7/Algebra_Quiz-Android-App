@@ -2,11 +2,13 @@ package com.jfinkelstudios.mobile.algebraquizapp;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ public class EquationLinesActivity extends AppCompatActivity {
     //* Classes
     private EquationOfLines equationOfLines;
     private SoundEffects correctSoundEffect, inCorrectSoundEffect;
+    private RelativeLayout equationOfLinesRelativeLayout;
     //* DATA TYPES
     private static int currentProgress = 0;
     private static final String PROPERTY_NAME = "progress";
@@ -34,13 +37,14 @@ public class EquationLinesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equation_lines);
         /***FIND VIEW BY ID'S***/
+        progressBar = findViewById(R.id.progressBar);
         radioGroup = findViewById(R.id.radioGroup);
         radioBtn_Solution_1 = findViewById(R.id.radio_A);
         radioBtn_Solution_2 = findViewById(R.id.radio_B);
         radioBtn_Solution_3 = findViewById(R.id.radio_C);
         radioBtn_Solution_4 = findViewById(R.id.radio_D);
         txtView_Questions = findViewById(R.id.txtView_QuestionInstructions);
-        progressBar = findViewById(R.id.progressBar);
+        equationOfLinesRelativeLayout = findViewById(R.id.mainEquationOfLinesRelativeLayout);
         /*****Sound Effects*****/
         correctSoundEffect = new SoundEffects(EquationLinesActivity.this, 1);
         correctSoundEffect.setSound(R.raw.sound_small_bell);
@@ -55,6 +59,14 @@ public class EquationLinesActivity extends AppCompatActivity {
         radioBtn_Solution_2.setText(equationOfLines.getSolution(2));
         radioBtn_Solution_3.setText(equationOfLines.getSolution(3));
         radioBtn_Solution_4.setText(equationOfLines.getSolution(4));
+        if (MainActivity.nightModeResult) {
+            equationOfLinesRelativeLayout.setBackgroundColor(Color.BLACK);
+            txtView_Questions.setTextColor(Color.WHITE);
+            radioBtn_Solution_1.setTextColor(Color.WHITE);
+            radioBtn_Solution_2.setTextColor(Color.WHITE);
+            radioBtn_Solution_3.setTextColor(Color.WHITE);
+            radioBtn_Solution_4.setTextColor(Color.WHITE);
+        }
     }
 
 

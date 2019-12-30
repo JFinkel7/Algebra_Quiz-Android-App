@@ -17,10 +17,10 @@ import Quiz.DataSaver;
 
 public class ProgressActivity extends AppCompatActivity {
     //*******>
-    BarChart barChart;
-    BarData barData;
-    BarDataSet barDataSet;
-    ArrayList<BarEntry> barEntries;
+    private BarChart barChart;
+    private BarData barData;
+    private BarDataSet barDataSet;
+    private ArrayList<BarEntry> barEntries;
     // Score Keeper
     private DataSaver dataSaver;
     private int data = 1;

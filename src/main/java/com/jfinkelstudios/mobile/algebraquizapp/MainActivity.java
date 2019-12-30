@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 0;
     // * Alarm Time Config *
     private static final long ALARM_REPEATED_INTERVAL = AlarmManager.INTERVAL_DAY;
-    private static final long TRIGGER_TIME = SystemClock.elapsedRealtime() + (AlarmManager.INTERVAL_FIFTEEN_MINUTES);
+    private static final long TRIGGER_TIME = SystemClock.elapsedRealtime() + (AlarmManager.INTERVAL_HALF_DAY);
     private static final String INFO = "INFO:";
     private static final String ALARM_ACTIVITY_DEBUG_INFO = "Alarm Has Started";
     protected static boolean nightModeResult;
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // GETS BOOLEAN VALUE FROM SETTINGS ACTIVITY
-        nightModeResult = getIntent().getBooleanExtra("background_change", false);
+        nightModeResult = getIntent().getBooleanExtra(SettingsActivity.BACKGROUND_CHANGE, false);
         if (nightModeResult) {
             GRID_LAYOUT.setBackgroundColor(Color.BLACK);
             CARD_VIEW_1.setCardBackgroundColor(Color.WHITE);
@@ -109,5 +109,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, SettingsActivity.class));
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SettingsActivity.editor.clear();
+    }
 }// END OF CLASS

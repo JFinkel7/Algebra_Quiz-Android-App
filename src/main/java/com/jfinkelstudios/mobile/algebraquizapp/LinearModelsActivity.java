@@ -77,6 +77,8 @@ public class LinearModelsActivity extends AppCompatActivity {
         setMotionEventListener(btnQuestion_4);
         // SETTING DRAG LISTENER ON TXT_VIEW TARGET
         setDragListener(txtViewTarget);
+        
+        /***Initialize's Night Mode Feature For This Activity***/
         if (MainActivity.nightModeResult) {
             mainRelativeLayout.setBackgroundColor(Color.BLACK);
             txtViewTarget.setBackgroundColor(Color.WHITE);

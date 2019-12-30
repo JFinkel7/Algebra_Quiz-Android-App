@@ -59,6 +59,7 @@ public class Functions2_3Activity extends AppCompatActivity {
         functions_2_3 = new Functions_2_3(Functions2_3Activity.this);
         /***Initialize's The Table Functions_2_3 Question When Loading The App***/
         txtView_Questions.setText(functions_2_3.getQuestion());
+        /***Initialize's Night Mode Feature For This Activity***/
         if (MainActivity.nightModeResult) {
             mainRelativeLayout.setBackgroundColor(Color.BLACK);
             btnNext.setBackgroundColor(Color.WHITE);
